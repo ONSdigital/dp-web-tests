@@ -1,0 +1,46 @@
+{
+  "name": "dp-web-tests",
+  "version": "1.0.0",
+  "description": "Automated tests for dp websites",
+  "main": "index.js",
+  "scripts": {
+    "start:chrome": "nightwatch --tag ons --env chrome",
+    "start:firefox": "nightwatch --tag ons --env firefox",
+    "start:safari": "nightwatch --tag ons --env safari",
+    "start:parallel-single-browser": "nightwatch --tag ons --env chrome",
+    "start:parallel-multiple-browser": "nightwatch --tag ons --env chrome,firefox",
+    "start:parallel-all-browser": "nightwatch --tag ons --env chrome,firefox,safari"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ONSdigital/dp-web-tests.git"
+  },
+  "keywords": [
+    "automated",
+    "testing",
+    "web"
+  ],
+  "author": "ONSdigital",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ONSdigital/dp-web-tests/issues"
+  },
+  "homepage": "https://github.com/ONSdigital/dp-web-tests#readme",
+  "dependencies": {
+    "chromedriver": "^2.32.2",
+    "cucumber": "^3.0.1",
+    "cucumber-html-reporter": "^3.0.1",
+    "edgedriver": "^4.15063.0",
+    "geckodriver": "^1.8.1",
+    "nightwatch": "^0.9.16",
+    "nightwatch-allure-adapter": "^1.2.4",
+    "nightwatch-cucumber": "^8.0.10",
+    "phantomjs-prebuilt": "^2.1.15",
+    "selenium": "^2.20.0",
+    "selenium-server": "^3.5.3",
+    "selenium-webdriver": "^3.5.0",
+    "sigmund": "^1.0.1",
+    "universalify": "^0.1.1"
+  },
+  "devDependencies": {}
+}
