@@ -9,13 +9,13 @@ defineSupportCode(({Given, Then, When}) => {
     });
 
     Then(/^the title is "([^"]*)"$/, (title) => {
-        return client.assert.title(title);
+        return client
+            .waitForElementPresent('body', 20000)
+            .assert.title(title);
     });
 
     Then(/^the search form exists$/, () => {
         return client
         .waitForElementPresent('input[name="q"]', 20000)
-        .setValue('input[name="q"]', "CPI")
-        .end();
     });
 });
