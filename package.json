@@ -4,12 +4,13 @@
   "description": "Automated tests for dp websites",
   "main": "index.js",
   "scripts": {
-    "start:chrome": "nightwatch --tag cmd --env chrome",
-    "start:firefox": "nightwatch --tag cmd --env firefox",
-    "start:safari": "nightwatch --tag cmd --env safari",
-    "start:parallel-single-browser": "nightwatch --tag cmd --env chrome",
-    "start:parallel-multiple-browser": "nightwatch --tag cmd --env chrome,firefox",
-    "start:parallel-all-browser": "nightwatch --tag cmd --env chrome,firefox,safari"
+    "start": "nightwatch --tag cmd; node create-html-report.js",
+    "start:chrome": "nightwatch --tag cmd --env chrome; node create-html-report.js",
+    "start:firefox": "nightwatch --tag cmd --env firefox; node create-html-report.js",
+    "start:safari": "nightwatch --tag cmd --env safari; node create-html-report.js",
+    "start:parallel-single-browser": "nightwatch --tag cmd --env chrome; node create-html-report.js",
+    "start:parallel-multiple-browser": "nightwatch --tag cmd --env chrome,firefox; node create-html-report.js",
+    "start:parallel-all-browser": "nightwatch --tag cmd --env chrome,firefox,safari; node create-html-report.js"
   },
   "repository": {
     "type": "git",
