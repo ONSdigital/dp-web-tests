@@ -1,0 +1,352 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "CMD Journey",
+    "line": 1,
+    "id": "cmd-journey",
+    "tags": [],
+    "uri": "features/cmd.feature",
+    "elements": [
+      {
+        "id": "cmd-journey;navigate-to-filter-options-from-homepage",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Navigate to Filter Options from homepage",
+        "tags": [
+          {
+            "name": "@cmd",
+            "line": 3
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I open the ONS homepage",
+            "match": {
+              "location": "features/step_definitions/cmd.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3046
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "the homepage title is \"Home - Office for National Statistics\"",
+            "match": {
+              "location": "features/step_definitions/cmd.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2032
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "the search form exists",
+            "match": {
+              "location": "features/step_definitions/cmd.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 28
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I type \"labour\" into the search box",
+            "match": {
+              "location": "features/step_definitions/cmd.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 123
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I click submit",
+            "match": {
+              "location": "features/step_definitions/cmd.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 649
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "the search page title is \"labour - Search - Office for National Statistics\"",
+            "match": {
+              "location": "features/step_definitions/cmd.js:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2060
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "I choose the second search option",
+            "match": {
+              "location": "features/step_definitions/cmd.js:40"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5538
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "the dataset page title is \"Labour disputes by sector: LABD02 - Office for National Statistics\"",
+            "match": {
+              "location": "features/step_definitions/cmd.js:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2039
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click to \"Filter and Download\"",
+            "match": {
+              "location": "features/step_definitions/cmd.js:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 423
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "the filter options title is \"Filter Options - Office for National Statistics\"",
+            "match": {
+              "location": "features/step_definitions/cmd.js:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2029
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I click the \"Goods and Services\" dimension link",
+            "match": {
+              "location": "features/step_definitions/cmd.js:64"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "the dimension title is \"Goods and Services\"",
+            "match": {
+              "location": "features/step_definitions/cmd.js:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2106
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I click the first checkbox",
+            "match": {
+              "location": "features/step_definitions/cmd.js:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 102
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "the selection updates with the selected element",
+            "match": {
+              "location": "features/step_definitions/cmd.js:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 34
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "the selection count increases",
+            "match": {
+              "location": "features/step_definitions/cmd.js:87"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 103
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I click remove item",
+            "match": {
+              "location": "features/step_definitions/cmd.js:91"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 117
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the item is removed from the selection",
+            "match": {
+              "location": "features/step_definitions/cmd.js:95"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2027
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "the selection count is updated",
+            "match": {
+              "location": "features/step_definitions/cmd.js:100"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 24,
+            "name": "I click add all",
+            "match": {
+              "location": "features/step_definitions/cmd.js:104"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 112
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "the filter selection contains all items",
+            "match": {
+              "location": "features/step_definitions/cmd.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 49
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "I click the \"Save and Return to filter options\" button",
+            "match": {
+              "location": "features/step_definitions/cmd.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 412
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "I click the \"time\" type dimension link",
+            "match": {
+              "location": "features/step_definitions/cmd.js:117"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the dimension type title is \"Time\"",
+            "match": {
+              "location": "features/step_definitions/cmd.js:124"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2119
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 29,
+            "name": "I click the \"Add Range\" link",
+            "match": {
+              "location": "features/step_definitions/cmd.js:131"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 172
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 30,
+            "name": "the filter selection contains one item",
+            "match": {
+              "location": "features/step_definitions/cmd.js:136"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2057
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
