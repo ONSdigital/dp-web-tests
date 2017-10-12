@@ -5,7 +5,7 @@ Automated tests for dp websites using nightwatch.js, with the cucumber framework
 ### Configuration
 
 You must set the environment variable `ROUTER_URL` to point at your dp-frontend-router
-service, and `MONGODB_URL` to point at your mongodb instance.
+service, `MONGODB_URL` to point at your mongodb instance and `FLORENCE_URL` to point at florence.
 
 ### Installing components
 
@@ -17,7 +17,8 @@ it, and run:
 Once you have done this, assuming you have Google Chrome installed, and your dp
 environment set up locally, you should be able to run:
 
-- `npm run start:chrome`
+- `npm run start:chrome` or
+- `npm run start:chrome-florence`
 
 to run the tests.
 
