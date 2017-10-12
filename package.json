@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:chrome": "nightwatch --tag cmd --env chrome",
+    "start:chrome-florence": "nightwatch --tag florence --env chrome",
     "start:firefox": "nightwatch --tag cmd --env firefox",
     "start:safari": "nightwatch --tag cmd --env safari",
     "start:parallel-single-browser": "nightwatch --tag cmd --env chrome",
