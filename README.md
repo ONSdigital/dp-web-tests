@@ -5,7 +5,7 @@ Automated tests for dp websites using nightwatch.js, with the cucumber framework
 ### Configuration
 
 You must set the environment variable `ROUTER_URL` to point at your dp-frontend-router
-service.
+service, and `MONGODB_URL` to point at your mongodb instance.
 
 ### Installing components
 

@@ -4,42 +4,9 @@ var {defineSupportCode} = require('cucumber');
 var page = client.page.cmdPage();
 
 defineSupportCode(({Given, Then, When}) => {
-    Given(/^I open the ONS homepage$/, () => {
+    Given(/^I open the the dataset landing page with id "([^"]*)"$/, (datasetID) => {
         return page
-            .navigate()
-            .waitForElementPresent('@body', 20000);
-    });
-
-    Then(/^the homepage title is "([^"]*)"$/, (title) => {
-        client.pause(2000);
-        return page
-            .waitForElementPresent('@body', 20000)
-            .assert.title(title);
-    });
-
-    Then(/^the search form exists$/, () => {
-        return page.waitForElementPresent('@globalSearch', 20000)
-    });
-
-    When(/^I type "([^"]*)" into the search box$/, (term) => {
-        return page.setValue('@globalSearch', term);
-    });
-
-    Then(/^I click submit$/, () => {
-        return page
-            .click('@globalSearchSubmit');
-    });
-
-    Then(/^the search page title is "([^"]*)"$/, (title) => {
-        client.pause(2000);
-        return page
-            .waitForElementPresent('@body', 20000)
-            .assert.title(title);
-    });
-
-    When(/^I choose the second search option$/, () => {
-        return page
-            .click('@CMDDatasetLink');
+            .navigate(datasetID);
     });
 
     Then(/^the dataset page title is "([^"]*)"$/, (title) => {
@@ -63,7 +30,7 @@ defineSupportCode(({Given, Then, When}) => {
 
     Then(/^I click the "([^"]*)" dimension link$/, (link) => {
         return page
-            .click('xpath','//a[contains(@href,"goods-and-services")]');
+            .click('xpath','//a[contains(@href,"aggregate")]');
     });
 
     Then(/^the dimension title is "([^"]*)"$/, (title) => {

@@ -1,13 +1,15 @@
+function pNavigate(datasetID) {
+  return this.api
+    .url(process.env.ROUTER_URL + "/datasets/" + datasetID)
+    .waitForElementPresent('body', 20000);
+}
+
 module.exports = {
-    url: process.env.ROUTER_URL,
     elements: {
         body: 'body',
-        globalSearch: 'input[name="q"]',
-        globalSearchSubmit: '#nav-search-submit',
-        CMDDatasetLink: 'a[href="/employmentandlabourmarket/peopleinwork/workplacedisputesandworkingconditions/datasets/labourdisputesbysectorlabd02"]',
         pageHeader: '.page-intro__title',
         checkbox: '.checkbox:first-child div .checkbox__input',
-        checkboxLabel: '.checkbox:first-child div .checkbox__label',
+        checkboxLabel: 'label[class="checkbox__label"]',
         filterSelection: '.filter-selection ul li:first-child span',
         filterList: '.filter-selection ul li',
         count: '.filter-selection__header h2 span',
@@ -17,6 +19,7 @@ module.exports = {
         addRange: 'input.add-range'
     },
     commands: [{
+      navigate: pNavigate,
       verifySelection: function () {
         var self = this
         return self.getText('@checkboxLabel', function(label) {
