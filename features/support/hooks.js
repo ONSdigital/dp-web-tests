@@ -51,12 +51,12 @@ function teardown() {
     })
 }
 
-defineSupportCode(({Before, After}) => {
-    Before( function() {
+defineSupportCode(({BeforeAll, AfterAll}) => {
+    BeforeAll( function() {
         setup();
     })
 
-    After( function() {
+    AfterAll( function() {
         teardown();
     })
 })

@@ -31,6 +31,54 @@ defineSupportCode(({Given, Then, When}) => {
     Then(/^I should be on the florence homepage$/, () => {
         return page
             .waitForElementPresent('@body', 20000)
-            .assert.containsText('h1', 'Select a collection');
+            .assert.containsText('@homepageTitle', 'Select a collection');
+    });
+
+    Then(/^I logout$/, () => {
+        return page
+            .waitForElementPresent('@logoutButton', 20000)
+            .click('@logoutButton');
+    });
+
+    When(/^I click on datasets$/, () => {
+        return page
+            .waitForElementPresent('@datasetsButton', 20000)
+            .click('@datasetsButton');
+    });
+
+    Then(/^a selectable table exists with expected fields$/, () => {
+        return page
+            .waitForElementPresent('@selectableTable', 20000)
+            .waitForElementPresent('@selectableDetailsSummary', 20000)
+            .waitForElementPresent('@selectableDetails', 20000);
+    });
+
+    Then(/^the table should contain a row titled "([^"]*)"$/, (title) => {
+        return page
+            .waitForElementPresent('@rowTitle', 20000)
+            .assert.containsText('@rowTitle', title);
+    });
+
+    When(/^I click on the row$/, () => {
+        return page
+            .click('@rowTitle');
+    });
+
+    Then(/^the row is expanded$/, () => {
+        return page
+            .waitForElementPresent('@selectableDetails', 20000)
+            .assert.attributeEquals('@selectableDetails', 'open', 'true');
+    });
+
+    When(/^I click on the Edit dataset details button$/, () => {
+        return page
+            .waitForElementPresent('@editDetailsButton', 20000)
+            .click('@editDetailsButton');
+    });
+
+    Then(/^the dataset details page is available for dataset id: "([^"]*)"$/, (datasetID) => {
+        return page
+            .waitForElementPresent('@datasetID', 20000)
+            .assert.containsText('@datasetID', datasetID);
     });
 });

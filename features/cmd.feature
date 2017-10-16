@@ -4,7 +4,7 @@ Feature: CMD Journey
 Scenario: Navigate to Filter Options from homepage
 
     Given I open the the dataset landing page with id "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
-    Then the dataset page title is "COICOP (Consumer Price Index): 2018 - Office for National Statistics"
+    Then the dataset page title is "CPI - Office for National Statistics"
     And I click to "Filter and Download"
     Then the filter options title is "Filter Options - Office for National Statistics"
     And I click the "Goods and Services" dimension link
