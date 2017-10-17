@@ -30,7 +30,7 @@ defineSupportCode(({Given, Then, When}) => {
 
     Then(/^I should be on the florence homepage$/, () => {
         return page
-            .waitForElementPresent('@body', 20000)
+            .waitForElementPresent('@homepageTitle', 20000)
             .assert.containsText('@homepageTitle', 'Select a collection');
     });
 

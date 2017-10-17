@@ -17,8 +17,7 @@ it, and run:
 Once you have done this, assuming you have Google Chrome installed, and your dp
 environment set up locally, you should be able to run:
 
-- `npm run start:chrome` or
-- `npm run start:chrome-florence`
+- ./run.sh (this will run website and florence acceptance tests)
 
 to run the tests.
 
@@ -30,13 +29,9 @@ The develop tab can be accessed by going to safari properties, clicking on
 Advanced, and then selecting Show Develop menu in menu bar. To run tests in safari,
 simply run:
 
-`npm run start:safari`
+`./run.sh -s`
 
 To run tests in firefox, ensure you have the latest version downloaded (55+), and 
 run:
 
-`npm run start:firefox`
-
-To run all browsers in parallel, run:
-
-`npm run start:parallel-all-browser`
+`./run.sh -f`
