@@ -12,12 +12,12 @@ service, `MONGODB_URL` to point at your mongodb instance and `FLORENCE_URL` to p
 To install the dependencies for this project, simply clone this repository, cd into
 it, and run:
 
-- `npm install`
+- `./run.sh -i` 
 
 Once you have done this, assuming you have Google Chrome installed, and your dp
 environment set up locally, you should be able to run:
 
-- ./run.sh (this will run website and florence acceptance tests)
+- `./run.sh` (this will run website and florence acceptance tests)
 
 to run the tests.
 
