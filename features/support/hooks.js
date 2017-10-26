@@ -1,7 +1,8 @@
 const {defineSupportCode} = require('cucumber');
 var MongoClient = require('mongodb').MongoClient;
 
-var mongoURL = process.env.MONGODB_URL + "/datasets";
+var mongoURL = process.env.MONGODB_URL;
+var datasetCollection = mongoURL + "/datasets";
 
 var collections = [
     "contacts",
@@ -17,7 +18,7 @@ function setup() {
     console.log("setting up tests")
 
     const spawn = require( 'child_process' ).spawn,
-    exec = spawn( 'mongorestore' );
+    exec = spawn( 'mongorestore', [ '--uri=' + mongoURL ] );
 
     exec.stdout.on( 'data', data => {
         console.log( `stdout: ${data}` );
@@ -35,7 +36,7 @@ function setup() {
 function teardown() {
     console.log("tearing down test data")
 
-    MongoClient.connect(mongoURL, function(err, db) {
+    MongoClient.connect(datasetCollection, function(err, db) {
         if (err) throw err;
 
         for (var i in collections) {

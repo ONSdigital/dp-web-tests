@@ -31,6 +31,5 @@ case "$1" in
         ;;
     *) 
         npm run start:chrome
-        npm run start:chrome-florence
         ;;
 esac

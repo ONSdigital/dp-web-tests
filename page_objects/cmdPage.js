@@ -16,7 +16,14 @@ module.exports = {
         remove: '.filter-selection ul li:first-child span.remove-link a',
         addAll: 'input.add-all',
         button: '.btn',
-        addRange: 'input.add-range'
+        addRange: 'input.add-range',
+        addLatestRadio: 'input[id="time-selection-latest"]',
+        addSingleRadio: 'input[id="time-selection-single"]',
+        addRangeRadio: 'input[id="time-selection-range"]',
+        addListRadio: 'input[id="time-selection-list"]',
+        filterAndDownload: 'input[value="Filter and Download"]',
+        timeFilterOption: 'div[id="number-added-Time"]',
+        saveAndReturn: 'input[name="save-and-return"]'
     },
     commands: [{
       navigate: pNavigate,

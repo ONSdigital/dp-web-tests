@@ -23,5 +23,3 @@ Scenario: Dataset journey
     And the table should contain a row titled "CPI"
     When I click on the row
     Then the row is expanded
-    When I click on the Edit dataset details button
-    Then the dataset details page is available for dataset id: "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
