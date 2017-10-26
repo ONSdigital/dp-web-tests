@@ -1,1 +1,0 @@
-{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"codelists.codes"},{"v":2,"key":{"links.code_list.id":1.0},"name":"links.code_list.id_1","ns":"codelists.codes","background":true},{"v":2,"key":{"code":1.0,"links.code_list.id":1.0},"name":"code_1_links.code_list.id_1","ns":"codelists.codes","background":true}]}
