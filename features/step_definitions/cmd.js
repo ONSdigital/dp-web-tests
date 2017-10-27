@@ -124,7 +124,7 @@ defineSupportCode(({Given, Then, When}) => {
     Then(/the filter options for time contains the latest result$/, function() {
         return page
             .waitForElementPresent('@timeFilterOption', 20000)
-            .assert.containsText('@timeFilterOption', '(1) June 2015');
+            .assert.containsText('@timeFilterOption', '1 item added: June 2015');
     })
 
     Then(/I click the second radio button$/, function() {
@@ -195,7 +195,7 @@ defineSupportCode(({Given, Then, When}) => {
     Then(/the the filter options for time contains all results$/, function() {
         return page
             .waitForElementPresent('@timeFilterOption', 20000)
-            .expect.element('@timeFilterOption').text.to.match(/\(234\).+/);
+            .expect.element('@timeFilterOption').text.to.match(/234 items added:.+/);
     })
 
 });
