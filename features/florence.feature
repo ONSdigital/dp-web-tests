@@ -23,8 +23,8 @@ Scenario: Dataset journey
     And the table should contain a row titled "CPI"
     When I click on the row
     Then the row is expanded
-    When I click on the Edit dataset details button
-    Then I see the "Dataset details" page
+    When I click on the Edit dataset details button with the url: "931a8a2a-0dc8-42b6-a884-7b6054ed3b68/metadata"
+    Then the dataset details page is available for dataset id: "931a8a2a-0dc8-42b6-a884-7b6054ed3b68"
     And I logout from new florence
 
 @florence
@@ -40,7 +40,7 @@ Scenario: Instance & version journey
     And the table should contain a row titled "CPI"
     When I click on the row
     Then the row is expanded
-    When I click on the view link
+    When I click on the view link with the url: "931a8a2a-0dc8-42b6-a884-7b6054ed3b68/editions"
     Then I see the metadata page
     And the dataset has the title "CPI"
     When I click the save button

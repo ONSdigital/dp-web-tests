@@ -70,16 +70,15 @@ defineSupportCode(({Given, Then, When}) => {
             .assert.attributeEquals('@selectableDetails', 'open', 'true');
     });
 
-    When(/^I click on the Edit dataset details button$/, () => {
+    When(/^I click on the Edit dataset details button with the url: "([^"]*)"$/, (datasetID) => {
         return page
-            .waitForElementPresent('@editDetailsButton', 20000)
-            .click('@editDetailsButton');
+            .click('xpath','//a[contains(@href, "' + datasetID + '")]');
     });
 
-    Then(/^I see the "([^"]*)" page$/, (pageTitle) => {
+    Then(/^the dataset details page is available for dataset id: "([^"]*)"$/, (datasetID) => {
         return page
-            .waitForElementPresent('@pageTitle', 20000)
-            .assert.containsText('@pageTitle', pageTitle);
+            .waitForElementPresent('@datasetID', 20000)
+            .assert.containsText('@datasetID', datasetID);
     });
 
     Then(/^I logout from new florence$/, () => {
@@ -88,10 +87,10 @@ defineSupportCode(({Given, Then, When}) => {
             .click('@logoutButtonNew');
     });
 
-    When(/^I click on the view link$/, () => {
+    When(/^I click on the view link with the url: "([^"]*)"$/, (datasetID) => {
         return page
         .waitForElementPresent('@viewLink', 20000)
-        .click('@viewLink');
+        .click('xpath','//a[contains(@href, "' + datasetID + '")]');
     });
 
     Then(/^I see the metadata page$/, () => {

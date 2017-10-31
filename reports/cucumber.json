@@ -30,7 +30,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 4849
+              "duration": 4919
             }
           },
           {
@@ -43,7 +43,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1056
+              "duration": 322
             }
           },
           {
@@ -56,7 +56,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 397
+              "duration": 175
             }
           },
           {
@@ -69,7 +69,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 184
+              "duration": 105
             }
           },
           {
@@ -82,7 +82,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 703
+              "duration": 1018
             }
           },
           {
@@ -95,7 +95,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 564
+              "duration": 526
             }
           }
         ]
@@ -123,7 +123,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 542
+              "duration": 425
             }
           },
           {
@@ -136,7 +136,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 257
+              "duration": 236
             }
           },
           {
@@ -149,7 +149,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 148
+              "duration": 147
             }
           },
           {
@@ -162,7 +162,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 84
+              "duration": 81
             }
           },
           {
@@ -175,7 +175,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 577
+              "duration": 1337
             }
           },
           {
@@ -188,7 +188,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 501
+              "duration": 508
             }
           },
           {
@@ -201,7 +201,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 605
+              "duration": 109
             }
           },
           {
@@ -214,7 +214,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 80
+              "duration": 99
             }
           },
           {
@@ -227,7 +227,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 90
+              "duration": 68
             }
           },
           {
@@ -240,33 +240,33 @@
             },
             "result": {
               "status": "passed",
-              "duration": 58
+              "duration": 48
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 26,
-            "name": "I click on the Edit dataset details button",
+            "name": "I click on the Edit dataset details button with the url: \"931a8a2a-0dc8-42b6-a884-7b6054ed3b68/metadata\"",
             "match": {
               "location": "features/step_definitions/florence.js:73"
             },
             "result": {
               "status": "passed",
-              "duration": 202
+              "duration": 184
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 27,
-            "name": "I see the \"Dataset details\" page",
+            "name": "the dataset details page is available for dataset id: \"931a8a2a-0dc8-42b6-a884-7b6054ed3b68\"",
             "match": {
-              "location": "features/step_definitions/florence.js:79"
+              "location": "features/step_definitions/florence.js:78"
             },
             "result": {
               "status": "passed",
-              "duration": 103
+              "duration": 104
             }
           },
           {
@@ -275,11 +275,11 @@
             "line": 28,
             "name": "I logout from new florence",
             "match": {
-              "location": "features/step_definitions/florence.js:85"
+              "location": "features/step_definitions/florence.js:84"
             },
             "result": {
               "status": "passed",
-              "duration": 113
+              "duration": 115
             }
           }
         ]
@@ -307,7 +307,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 426
+              "duration": 433
             }
           },
           {
@@ -320,7 +320,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 260
+              "duration": 248
             }
           },
           {
@@ -333,7 +333,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 150
+              "duration": 163
             }
           },
           {
@@ -346,7 +346,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 87
+              "duration": 109
             }
           },
           {
@@ -359,7 +359,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 579
+              "duration": 583
             }
           },
           {
@@ -372,7 +372,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 485
+              "duration": 544
             }
           },
           {
@@ -385,7 +385,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 560
+              "duration": 586
             }
           },
           {
@@ -398,7 +398,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 55
+              "duration": 75
             }
           },
           {
@@ -411,7 +411,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 74
+              "duration": 66
             }
           },
           {
@@ -424,20 +424,20 @@
             },
             "result": {
               "status": "passed",
-              "duration": 38
+              "duration": 51
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 43,
-            "name": "I click on the view link",
+            "name": "I click on the view link with the url: \"931a8a2a-0dc8-42b6-a884-7b6054ed3b68/editions\"",
             "match": {
-              "location": "features/step_definitions/florence.js:91"
+              "location": "features/step_definitions/florence.js:90"
             },
             "result": {
               "status": "passed",
-              "duration": 120
+              "duration": 115
             }
           },
           {
@@ -446,11 +446,11 @@
             "line": 44,
             "name": "I see the metadata page",
             "match": {
-              "location": "features/step_definitions/florence.js:97"
+              "location": "features/step_definitions/florence.js:96"
             },
             "result": {
               "status": "passed",
-              "duration": 61
+              "duration": 85
             }
           },
           {
@@ -459,11 +459,11 @@
             "line": 45,
             "name": "the dataset has the title \"CPI\"",
             "match": {
-              "location": "features/step_definitions/florence.js:103"
+              "location": "features/step_definitions/florence.js:102"
             },
             "result": {
               "status": "passed",
-              "duration": 75
+              "duration": 63
             }
           },
           {
@@ -472,11 +472,11 @@
             "line": 46,
             "name": "I click the save button",
             "match": {
-              "location": "features/step_definitions/florence.js:109"
+              "location": "features/step_definitions/florence.js:108"
             },
             "result": {
               "status": "passed",
-              "duration": 94
+              "duration": 99
             }
           },
           {
@@ -485,11 +485,11 @@
             "line": 47,
             "name": "I confirm I am viewing a \"version\"",
             "match": {
-              "location": "features/step_definitions/florence.js:115"
+              "location": "features/step_definitions/florence.js:114"
             },
             "result": {
               "status": "passed",
-              "duration": 33
+              "duration": 48
             }
           },
           {
@@ -498,11 +498,11 @@
             "line": 48,
             "name": "I logout from new florence",
             "match": {
-              "location": "features/step_definitions/florence.js:85"
+              "location": "features/step_definitions/florence.js:84"
             },
             "result": {
               "status": "passed",
-              "duration": 88
+              "duration": 134
             }
           }
         ]

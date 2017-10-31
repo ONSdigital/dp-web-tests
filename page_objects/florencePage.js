@@ -12,7 +12,6 @@ module.exports = {
         selectableTable: 'div[class="selectable-table"]',
         selectableDetailsSummary: 'summary[class="selectable-table__summary"]',
         selectableDetails: 'details[class="selectable-table__details"]',
-        editDetailsButton: 'details > div > a',
         rowTitle: 'div[class="grid__col-6"]:nth-child(1) strong',
         datasetID: 'span[class="inline-block margin-left--1"]',
         viewLink: '.simple-table__row div:last-child > a',
