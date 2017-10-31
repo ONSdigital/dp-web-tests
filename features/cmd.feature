@@ -78,3 +78,24 @@ Scenario: Add all of the available times
     And I click the fourth radio button
     When I click the add all button and Save and Return
     Then the the filter options for time contains all results
+
+@cmd
+
+Scenario: Give positive feedback via feedback form
+
+    Given I open the the dataset landing page with id "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
+    When I click the "yes" button on the feedback form
+    Then the feedback header says "Thanks for your feedback."
+
+@cmd
+    Scenario: Give negative feedback via feedback form
+
+    Given I open the the dataset landing page with id "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
+    When I click the "no" button on the feedback form
+    And I click on the Send message button
+    Then an error saying "Description can't be blank" appears
+    When I set the description to "Test Description"
+    And I click on the Send message button
+    Then the feedback header says "Thanks for your feedback."
+
+

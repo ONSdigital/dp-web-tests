@@ -189,13 +189,43 @@ defineSupportCode(({Given, Then, When}) => {
             .waitForElementPresent('input[name="add-all"]', 2000)
             .click('input[name="add-all"]')
             .waitForElementPresent('@saveAndReturn', 20000)
-            .click('@saveAndReturn');;
+            .click('@saveAndReturn');
     })
 
     Then(/the the filter options for time contains all results$/, function() {
         return page
             .waitForElementPresent('@timeFilterOption', 20000)
             .expect.element('@timeFilterOption').text.to.match(/234 items added:.+/);
+    })
+
+    When(/I click the "([^"]*)" button on the feedback form$/, function(button) {
+        return page
+            .waitForElementPresent('a[id="feedback-form-'+button+'"]', 2000)
+            .click('a[id="feedback-form-'+button+'"]');
+    })
+
+    Then(/the feedback header says "([^"]*)"$/, function(message) {
+        return page
+            .waitForElementPresent('div[id="feedback-form-header"]', 2000)
+            .assert.containsText('div[id="feedback-form-header"]', message);
+    })
+
+    Then(/I click on the Send message button$/, function() {
+        return page
+            .waitForElementPresent('input[id="feedback-form-submit"]', 2000)
+            .click('input[id="feedback-form-submit"]');
+    })
+
+    Then(/an error saying "([^"]*)" appears$/, function(error) {
+        return page
+            .waitForElementPresent('span[class="form-error"]', 2000)
+            .assert.containsText('span[class="form-error"]', error);
+    })
+    
+    When(/I set the description to "([^"]*)"$/, function(description) {
+        return page
+            .waitForElementPresent('textarea[id="description-field"]', 2000)
+            .setValue('textarea[id="description-field"]', description);
     })
 
 });
