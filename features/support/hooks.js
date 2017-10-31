@@ -23,11 +23,11 @@ function setup() {
     exec.stdout.on( 'data', data => {
         console.log( `stdout: ${data}` );
     });
-    
+
     exec.stderr.on( 'data', data => {
         console.log( `stderr: ${data}` );
     });
-    
+
     exec.on( 'close', code => {
         console.log( `setup complete.` );
     });
@@ -58,6 +58,5 @@ defineSupportCode(({BeforeAll, AfterAll}) => {
     })
 
     AfterAll( function() {
-        teardown();
     })
 })

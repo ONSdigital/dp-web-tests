@@ -1,20 +1,20 @@
 [
   {
     "keyword": "Feature",
-    "name": "CMD Journey",
+    "name": "Florence journey",
     "line": 1,
-    "id": "cmd-journey",
+    "id": "florence-journey",
     "tags": [],
-    "uri": "features/cmd.feature",
+    "uri": "features/florence.feature",
     "elements": [
       {
-        "id": "cmd-journey;navigate-to-filter-options-from-homepage",
+        "id": "florence-journey;login-to-florence",
         "keyword": "Scenario",
         "line": 4,
-        "name": "Navigate to Filter Options from homepage",
+        "name": "Login To Florence",
         "tags": [
           {
-            "name": "@cmd",
+            "name": "@florence",
             "line": 3
           }
         ],
@@ -24,325 +24,485 @@
             "arguments": [],
             "keyword": "Given ",
             "line": 6,
-            "name": "I open the ONS homepage",
+            "name": "I open the florence login page",
             "match": {
-              "location": "features/step_definitions/cmd.js:7"
+              "location": "features/step_definitions/florence.js:7"
             },
             "result": {
               "status": "passed",
-              "duration": 3046
+              "duration": 3810
             }
           },
           {
             "arguments": [],
-            "keyword": "Then ",
+            "keyword": "When ",
             "line": 7,
-            "name": "the homepage title is \"Home - Office for National Statistics\"",
+            "name": "I enter the email: \"florence@magicroundabout.ons.gov.uk\"",
             "match": {
-              "location": "features/step_definitions/cmd.js:13"
+              "location": "features/step_definitions/florence.js:13"
             },
             "result": {
               "status": "passed",
-              "duration": 2032
+              "duration": 347
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 8,
-            "name": "the search form exists",
+            "name": "I enter the password: \"one two three four\"",
             "match": {
-              "location": "features/step_definitions/cmd.js:20"
+              "location": "features/step_definitions/florence.js:19"
             },
             "result": {
               "status": "passed",
-              "duration": 28
+              "duration": 212
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 9,
-            "name": "I type \"labour\" into the search box",
+            "name": "I click the login button",
             "match": {
-              "location": "features/step_definitions/cmd.js:24"
+              "location": "features/step_definitions/florence.js:25"
             },
             "result": {
               "status": "passed",
-              "duration": 123
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 10,
-            "name": "I click submit",
-            "match": {
-              "location": "features/step_definitions/cmd.js:28"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 649
+              "duration": 108
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 11,
-            "name": "the search page title is \"labour - Search - Office for National Statistics\"",
+            "line": 10,
+            "name": "I should be on the florence homepage",
             "match": {
-              "location": "features/step_definitions/cmd.js:33"
+              "location": "features/step_definitions/florence.js:31"
             },
             "result": {
               "status": "passed",
-              "duration": 2060
+              "duration": 696
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I logout",
+            "match": {
+              "location": "features/step_definitions/florence.js:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 530
+            }
+          }
+        ]
+      },
+      {
+        "id": "florence-journey;dataset-journey",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Dataset journey",
+        "tags": [
+          {
+            "name": "@florence",
+            "line": 13
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 16,
+            "name": "I open the florence login page",
+            "match": {
+              "location": "features/step_definitions/florence.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 445
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 12,
-            "name": "I choose the second search option",
-            "match": {
-              "location": "features/step_definitions/cmd.js:40"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 5538
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 13,
-            "name": "the dataset page title is \"Labour disputes by sector: LABD02 - Office for National Statistics\"",
-            "match": {
-              "location": "features/step_definitions/cmd.js:45"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2039
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 14,
-            "name": "I click to \"Filter and Download\"",
-            "match": {
-              "location": "features/step_definitions/cmd.js:52"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 423
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 15,
-            "name": "the filter options title is \"Filter Options - Office for National Statistics\"",
-            "match": {
-              "location": "features/step_definitions/cmd.js:57"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2029
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 16,
-            "name": "I click the \"Goods and Services\" dimension link",
-            "match": {
-              "location": "features/step_definitions/cmd.js:64"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 400
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
             "line": 17,
-            "name": "the dimension title is \"Goods and Services\"",
+            "name": "I enter the email: \"florence@magicroundabout.ons.gov.uk\"",
             "match": {
-              "location": "features/step_definitions/cmd.js:69"
+              "location": "features/step_definitions/florence.js:13"
             },
             "result": {
               "status": "passed",
-              "duration": 2106
+              "duration": 241
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 18,
-            "name": "I click the first checkbox",
+            "name": "I enter the password: \"one two three four\"",
             "match": {
-              "location": "features/step_definitions/cmd.js:76"
+              "location": "features/step_definitions/florence.js:19"
             },
             "result": {
               "status": "passed",
-              "duration": 102
+              "duration": 143
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 19,
+            "name": "I click the login button",
+            "match": {
+              "location": "features/step_definitions/florence.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 86
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 19,
-            "name": "the selection updates with the selected element",
-            "match": {
-              "location": "features/step_definitions/cmd.js:82"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 34
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
             "line": 20,
-            "name": "the selection count increases",
+            "name": "I should be on the florence homepage",
             "match": {
-              "location": "features/step_definitions/cmd.js:87"
+              "location": "features/step_definitions/florence.js:31"
             },
             "result": {
               "status": "passed",
-              "duration": 103
+              "duration": 832
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 21,
-            "name": "I click remove item",
+            "name": "I click on datasets",
             "match": {
-              "location": "features/step_definitions/cmd.js:91"
+              "location": "features/step_definitions/florence.js:43"
             },
             "result": {
               "status": "passed",
-              "duration": 117
+              "duration": 505
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 22,
-            "name": "the item is removed from the selection",
+            "name": "a selectable table exists with expected fields",
             "match": {
-              "location": "features/step_definitions/cmd.js:95"
+              "location": "features/step_definitions/florence.js:49"
             },
             "result": {
               "status": "passed",
-              "duration": 2027
+              "duration": 608
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 23,
-            "name": "the selection count is updated",
+            "name": "the table should contain a row titled \"CPI\"",
             "match": {
-              "location": "features/step_definitions/cmd.js:100"
+              "location": "features/step_definitions/florence.js:56"
             },
             "result": {
               "status": "passed",
-              "duration": 44
+              "duration": 72
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 24,
-            "name": "I click add all",
+            "name": "I click on the row",
             "match": {
-              "location": "features/step_definitions/cmd.js:104"
+              "location": "features/step_definitions/florence.js:62"
             },
             "result": {
               "status": "passed",
-              "duration": 112
+              "duration": 72
             }
           },
           {
             "arguments": [],
-            "keyword": "And ",
+            "keyword": "Then ",
             "line": 25,
-            "name": "the filter selection contains all items",
+            "name": "the row is expanded",
             "match": {
-              "location": "features/step_definitions/cmd.js:108"
+              "location": "features/step_definitions/florence.js:67"
             },
             "result": {
               "status": "passed",
-              "duration": 49
+              "duration": 58
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 26,
-            "name": "I click the \"Save and Return to filter options\" button",
+            "name": "I click on the Edit dataset details button",
             "match": {
-              "location": "features/step_definitions/cmd.js:112"
+              "location": "features/step_definitions/florence.js:73"
             },
             "result": {
               "status": "passed",
-              "duration": 412
+              "duration": 196
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "the dataset details page is available for dataset id: \"95c4669b-3ae9-4ba7-b690-87e890a1c67c\"",
+            "match": {
+              "location": "features/step_definitions/florence.js:79"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 105
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 27,
-            "name": "I click the \"time\" type dimension link",
+            "line": 28,
+            "name": "I logout from new florence",
             "match": {
-              "location": "features/step_definitions/cmd.js:117"
+              "location": "features/step_definitions/florence.js:85"
             },
             "result": {
               "status": "passed",
-              "duration": 2400
+              "duration": 111
             }
-          },
+          }
+        ]
+      },
+      {
+        "id": "florence-journey;instance-&-version-journey",
+        "keyword": "Scenario",
+        "line": 31,
+        "name": "Instance & version journey",
+        "tags": [
+          {
+            "name": "@florence",
+            "line": 30
+          }
+        ],
+        "type": "scenario",
+        "steps": [
           {
             "arguments": [],
-            "keyword": "Then ",
-            "line": 28,
-            "name": "the dimension type title is \"Time\"",
+            "keyword": "Given ",
+            "line": 33,
+            "name": "I open the florence login page",
             "match": {
-              "location": "features/step_definitions/cmd.js:124"
+              "location": "features/step_definitions/florence.js:7"
             },
             "result": {
               "status": "passed",
-              "duration": 2119
+              "duration": 418
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 29,
-            "name": "I click the \"Add Range\" link",
+            "line": 34,
+            "name": "I enter the email: \"florence@magicroundabout.ons.gov.uk\"",
             "match": {
-              "location": "features/step_definitions/cmd.js:131"
+              "location": "features/step_definitions/florence.js:13"
             },
             "result": {
               "status": "passed",
-              "duration": 172
+              "duration": 238
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 35,
+            "name": "I enter the password: \"one two three four\"",
+            "match": {
+              "location": "features/step_definitions/florence.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 145
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 36,
+            "name": "I click the login button",
+            "match": {
+              "location": "features/step_definitions/florence.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 82
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 30,
-            "name": "the filter selection contains one item",
+            "line": 37,
+            "name": "I should be on the florence homepage",
             "match": {
-              "location": "features/step_definitions/cmd.js:136"
+              "location": "features/step_definitions/florence.js:31"
             },
             "result": {
               "status": "passed",
-              "duration": 2057
+              "duration": 573
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 38,
+            "name": "I click on datasets",
+            "match": {
+              "location": "features/step_definitions/florence.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 482
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 39,
+            "name": "a selectable table exists with expected fields",
+            "match": {
+              "location": "features/step_definitions/florence.js:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 557
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 40,
+            "name": "the table should contain a row titled \"CPI\"",
+            "match": {
+              "location": "features/step_definitions/florence.js:56"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 59
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 41,
+            "name": "I click on the row",
+            "match": {
+              "location": "features/step_definitions/florence.js:62"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 74
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 42,
+            "name": "the row is expanded",
+            "match": {
+              "location": "features/step_definitions/florence.js:67"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 43,
+            "name": "I click on the view link",
+            "match": {
+              "location": "features/step_definitions/florence.js:91"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 113
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 44,
+            "name": "I see the metadata page",
+            "match": {
+              "location": "features/step_definitions/florence.js:97"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 85
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 45,
+            "name": "the dataset has the title \"CPI\"",
+            "match": {
+              "location": "features/step_definitions/florence.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 72
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 46,
+            "name": "I click the save button",
+            "match": {
+              "location": "features/step_definitions/florence.js:109"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 97
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 47,
+            "name": "I confirm I am viewing a \"version\"",
+            "match": {
+              "location": "features/step_definitions/florence.js:115"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 48,
+            "name": "I logout from new florence",
+            "match": {
+              "location": "features/step_definitions/florence.js:85"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 110
             }
           }
         ]

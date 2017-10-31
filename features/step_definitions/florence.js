@@ -81,4 +81,41 @@ defineSupportCode(({Given, Then, When}) => {
             .waitForElementPresent('@datasetID', 20000)
             .assert.containsText('@datasetID', datasetID);
     });
+
+    Then(/^I logout from new florence$/, () => {
+        return page
+            .waitForElementPresent('@logoutButtonNew', 20000)
+            .click('@logoutButtonNew');
+    });
+
+    When(/^I click on the view link$/, () => {
+        return page
+        .waitForElementPresent('@viewLink', 20000)
+        .click('@viewLink');
+    });
+
+    Then(/^I see the metadata page$/, () => {
+        return page
+        .waitForElementPresent('@pageTitle', 20000)
+        .assert.containsText('@pageTitle', 'New data');
+    });
+    
+    Then(/^the dataset has the title "([^"]*)"$/, (title) => {
+        return page
+        .waitForElementPresent('@datasetTitle', 20000)
+        .assert.containsText('@datasetTitle', title);
+    });
+
+    When(/^I click the save button$/, () => {
+        return page
+        .waitForElementPresent('@saveButton', 20000)
+        .click('@saveButton');
+    });
+
+    Then(/^I confirm I am viewing a "([^"]*)"$/, (version) => {
+        return page
+        .waitForElementPresent('@body', 20000)
+        .assert.urlContains(version);
+    });
+
 });

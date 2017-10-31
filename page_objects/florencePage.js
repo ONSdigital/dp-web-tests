@@ -7,12 +7,17 @@ module.exports = {
         loginButton: 'button[type="submit"]',
         datasetsButton: 'a[class="nav__link js-nav-item js-nav-item--datasets"]',
         homepageTitle: 'h1[class="text-align-center"]',
-        logoutButton: 'a[class="nav__link js-nav-item js-nav-item--logout"]',
+        logoutButton: 'ul[class="nav__list"] li:last-child > a',
+        logoutButtonNew: 'ul[class="global-nav__list"] li:last-child > a',
         selectableTable: 'div[class="selectable-table"]',
         selectableDetailsSummary: 'summary[class="selectable-table__summary"]',
         selectableDetails: 'details[class="selectable-table__details"]',
+        editDetailsButton: 'details > div > a',
         rowTitle: 'div[class="grid__col-6"]:nth-child(1) strong',
-        editDetailsButton: 'a[class="inline-block margin-bottom--1"]',
-        datasetID: 'span[class="inline-block margin-left--1"]'
+        datasetID: 'span[class="inline-block margin-left--1"]',
+        viewLink: '.simple-table__row div:last-child > a',
+        pageTitle: 'h1',
+        datasetTitle: 'h2',
+        saveButton: 'button'
     }
 }
