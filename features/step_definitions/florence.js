@@ -76,10 +76,10 @@ defineSupportCode(({Given, Then, When}) => {
             .click('@editDetailsButton');
     });
 
-    Then(/^the dataset details page is available for dataset id: "([^"]*)"$/, (datasetID) => {
+    Then(/^I see the "([^"]*)" page$/, (pageTitle) => {
         return page
-            .waitForElementPresent('@datasetID', 20000)
-            .assert.containsText('@datasetID', datasetID);
+            .waitForElementPresent('@pageTitle', 20000)
+            .assert.containsText('@pageTitle', pageTitle);
     });
 
     Then(/^I logout from new florence$/, () => {
@@ -99,7 +99,7 @@ defineSupportCode(({Given, Then, When}) => {
         .waitForElementPresent('@pageTitle', 20000)
         .assert.containsText('@pageTitle', 'New data');
     });
-    
+
     Then(/^the dataset has the title "([^"]*)"$/, (title) => {
         return page
         .waitForElementPresent('@datasetTitle', 20000)

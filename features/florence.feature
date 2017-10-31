@@ -24,7 +24,7 @@ Scenario: Dataset journey
     When I click on the row
     Then the row is expanded
     When I click on the Edit dataset details button
-    Then the dataset details page is available for dataset id: "931a8a2a-0dc8-42b6-a884-7b6054ed3b68"
+    Then I see the "Dataset details" page
     And I logout from new florence
 
 @florence
