@@ -28,11 +28,6 @@ defineSupportCode(({Given, Then, When}) => {
             .assert.title(title);
     });
 
-    Then(/^I click the "([^"]*)" dimension link$/, (link) => {
-        return page
-            .click('xpath','//a[contains(@href,"aggregate")]');
-    });
-
     Then(/^the dimension title is "([^"]*)"$/, (title) => {
         client.pause(2000);
         return page
@@ -85,7 +80,7 @@ defineSupportCode(({Given, Then, When}) => {
         client.pause(2000);
         return page
             .waitForElementPresent('@body', 20000)
-            .click('xpath','//a[contains(@href,"time")]');
+            .click('xpath','//a[contains(@href,"'+link+'")]');
     });
 
     Then(/^the dimension type title is "([^"]*)"$/, (title) => {
@@ -146,6 +141,13 @@ defineSupportCode(({Given, Then, When}) => {
         return page
             .waitForElementPresent('@timeFilterOption', 20000)
             .assert.containsText('@timeFilterOption', result);
+    })
+
+    Then(/the filter options for goods and services contains the result "([^"]*)"$/, function(result) {
+        var re = new RegExp(result,"g");
+        return page
+            .waitForElementPresent('@aggregateFilterOption', 20000)
+            .expect.element('@aggregateFilterOption').text.to.match(re);
     })
 
     Then(/I click the third radio button$/, function() {
@@ -226,6 +228,32 @@ defineSupportCode(({Given, Then, When}) => {
         return page
             .waitForElementPresent('textarea[id="description-field"]', 2000)
             .setValue('textarea[id="description-field"]', description);
+    })
+
+    Then(/I click the view children for "([^"]*)"$/, function(id) {
+        return page
+            .waitForElementPresent('input[id="'+id+'-children"]', 2000)
+            .click('input[id="'+id+'-children"]') ;
+    })
+
+    Then(/I add the "([^"]*)" value/, function(id) {
+        return page
+            .waitForElementPresent('label[id="'+id+'"]', 2000)
+            .click('label[id="'+id+'"]');
+    })
+
+    Then(/I click the back button$/, function() {
+        return page
+            .waitForElementPresent('a[id="back"]', 2000)
+            .click('a[id="back"]');
+    })
+
+    Then(/I click the remove all button and Save and Return$/, function() {
+        return page
+            .waitForElementPresent('input[name="remove-all"]', 2000)
+            .click('input[name="remove-all"]')
+            .waitForElementPresent('@saveAndReturn', 20000)
+            .click('@saveAndReturn');
     })
 
 });
