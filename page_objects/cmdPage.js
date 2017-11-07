@@ -23,6 +23,7 @@ module.exports = {
         addListRadio: 'input[id="time-selection-list"]',
         filterAndDownload: 'input[value="Filter and Download"]',
         timeFilterOption: 'div[id="number-added-Time"]',
+        aggregateFilterOption: 'div[id="number-added-Goods and Services"]',
         saveAndReturn: 'input[name="save-and-return"]'
     },
     commands: [{

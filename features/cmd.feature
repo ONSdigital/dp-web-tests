@@ -7,7 +7,7 @@ Scenario: Navigate to Filter Options from homepage
     Then the dataset page title is "CPI - Office for National Statistics"
     And I click to "Filter and Download"
     Then the filter options title is "Filter Options - Office for National Statistics"
-    And I click the "Goods and Services" dimension link
+    And I click the "aggregate" type dimension link
     Then the dimension title is "Goods and Services"
     And I click the first checkbox
     Then the selection updates with the selected element
@@ -70,7 +70,6 @@ Scenario: The most recent time selection overrides any previous selections
     Then the filter options for time contains the latest result
 
 @cmd
-
 Scenario: Add all of the available times
 
     Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
@@ -80,7 +79,19 @@ Scenario: Add all of the available times
     Then the the filter options for time contains all results
 
 @cmd
+Scenario: Add all of the top level goods and services
+    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
+    When I click the "aggregate" type dimension link
+    And I click the add all button and Save and Return
+    Then the filter options for goods and services contains the result "12 items added.+"
+    When I click the "aggregate" type dimension link
+    And I click the view children for "cpi1dim1T120000"
+    When I add the "cpi1dim1G120500" value
+    And I click the back button
+    And I click the remove all button and Save and Return
+    Then the filter options for goods and services contains the result "1 item added.+"
 
+@cmd
 Scenario: Give positive feedback via feedback form
 
     Given I open the the dataset landing page with id "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
@@ -88,7 +99,7 @@ Scenario: Give positive feedback via feedback form
     Then the feedback header says "Thanks for your feedback."
 
 @cmd
-    Scenario: Give negative feedback via feedback form
+Scenario: Give negative feedback via feedback form
 
     Given I open the the dataset landing page with id "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
     When I click the "no" button on the feedback form
