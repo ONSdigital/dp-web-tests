@@ -9,6 +9,8 @@ service, `MONGODB_URL` to point at your mongodb instance and `FLORENCE_URL` to p
 
 ### Installing components
 
+**You must have Mongo version 3.4.7^ to run these acceptance tests.**
+
 To install the dependencies for this project, simply clone this repository, cd into
 it, and run:
 
