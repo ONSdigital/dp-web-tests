@@ -1,6 +1,6 @@
-function pNavigate(datasetID) {
+function navigateToDataset(datasetID) {
   return this.api
-    .url(process.env.ROUTER_URL + "/datasets/" + datasetID)
+    .url(process.env.ROUTER_URL + "/datasets/" + datasetID + "/editions/2016/versions/1")
     .waitForElementPresent('body', 20000);
 }
 
@@ -27,7 +27,7 @@ module.exports = {
         saveAndReturn: 'input[name="save-and-return"]'
     },
     commands: [{
-      navigate: pNavigate,
+      navigate: navigateToDataset,
       verifySelection: function () {
         var self = this
         return self.getText('@checkboxLabel', function(label) {
