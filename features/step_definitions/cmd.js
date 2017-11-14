@@ -4,7 +4,7 @@ var {defineSupportCode} = require('cucumber');
 var page = client.page.cmdPage();
 
 defineSupportCode(({Given, Then, When}) => {
-    Given(/^I open the the dataset landing page with id "([^"]*)"$/, (datasetID) => {
+    Given(/^I open the the dataset landing page with url "([^"]*)"$/, (datasetID) => {
         return page
             .navigate(datasetID);
     });
@@ -255,5 +255,24 @@ defineSupportCode(({Given, Then, When}) => {
             .waitForElementPresent('@saveAndReturn', 20000)
             .click('@saveAndReturn');
     })
+
+    Given(/I open the dataset editons list page with url "([^"]*)"$/, (datasetID) => {
+        return page
+            .navigate(datasetID)
+    });
+
+    When(/I click the "([^"]*)" link$/, function(edition) {
+        return page
+            .waitForElementPresent('a[id="edition-'+edition+'"]', 2000)
+            .click('a[id="edition-'+edition+'"]');
+    })
+
+    Then(/^the user is taken to the dataset landing page with title "([^"]*)"$/, (title) => {
+        client.pause(2000);
+        return page
+            .waitForElementPresent('@body', 20000)
+            .assert.title(title);
+    });
+
 
 });
