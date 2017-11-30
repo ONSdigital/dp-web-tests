@@ -4,3 +4,6 @@ debug
 build
 .idea
 node_modules
+npm-debug.log
+selenium-debug.log
+.vscode
