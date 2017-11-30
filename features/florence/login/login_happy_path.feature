@@ -17,3 +17,4 @@ Scenario: Redirect on successful login
     Then I get redirected to the login screen
     When I log in
     Then I should see the teams screen
+    Then I log out

@@ -53,10 +53,19 @@ function teardown() {
 }
 
 defineSupportCode(({BeforeAll, AfterAll}) => {
-    BeforeAll( function() {
-        setup();
+    BeforeAll(() => {
+        // setup();
     })
-
+    // BeforeAll( function() {
+    //     // TODO only run this datasets setup when we have the correct tags that need that data 
+    //     setup();
+    // })
     AfterAll( function() {
     })
+})
+
+defineSupportCode(({Before, After}) => {
+    Before((test) => {
+        // TODO for Florence tests (that aren't login itself) then run the login happy path test first 
+    });
 })

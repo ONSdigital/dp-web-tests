@@ -10,16 +10,29 @@ defineSupportCode(({Given, Then, When}) => {
     /*
     Reused across scenarios
     */
-    When(/^I log in/, () => {
+    When(/^I log in$/, () => {
         return loginPage
         .setValue('@emailInput', 'florence@magicroundabout.ons.gov.uk')
         .setValue('@passwordInput', 'one two three four')
         .attemptLogin(loginPage)
     });
 
+    When(/^I log in without entering any credentials/, () => {
+        return loginPage
+        .setValue('@emailInput', '')
+        .setValue('@passwordInput', '')
+        .attemptLogin(loginPage)
+    });
+
     When(/^I log out/, () => {
         return globalNav
             .logOut();
+    });
+
+    Then(/^I stay on the login page/, () => {
+        return loginPage
+            .assert.urlContains(loginPage.url)
+            .waitForLoad()
     });
 
 
@@ -37,7 +50,7 @@ defineSupportCode(({Given, Then, When}) => {
         waitForLoad()
         .assert.urlEquals(collectionsPage.url);
     });
-    
+
 
     /*
     Scenario: Redirect on successful login
@@ -53,9 +66,9 @@ defineSupportCode(({Given, Then, When}) => {
     });
 
     Then(/^I should see the teams screen/, () => {
-        return teamsPage.
-            waitForLoad()
+        return teamsPage
+            .waitForLoad()
             .assert.urlEquals(teamsPage.url);
-    });
+    }); 
 
 });
