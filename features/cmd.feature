@@ -3,7 +3,7 @@ Feature: CMD Journey
 @cmd
 Scenario: Navigate to Filter Options from homepage
 
-    Given I open the the dataset landing page with id "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
+    Given I open the the dataset landing page with url "95c4669b-3ae9-4ba7-b690-87e890a1c67c/editions/2016/versions/1"
     Then the dataset page title is "CPI - Office for National Statistics"
     And I click to "Filter and Download"
     Then the filter options title is "Filter Options - Office for National Statistics"
@@ -25,7 +25,7 @@ Scenario: Navigate to Filter Options from homepage
 @cmd
 Scenario: Add the latest available time to filter job
 
-    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
+    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c/editions/2016/versions/1"
     When I click the "time" type dimension link
     And I click the first radio button and Save and Return
     Then the filter options for time contains the latest result
@@ -33,7 +33,7 @@ Scenario: Add the latest available time to filter job
 @cmd
 Scenario: Add a single time to the filter job
 
-    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
+    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c/editions/2016/versions/1"
     When I click the "time" type dimension link
     And I click the second radio button
     And I select "April" "2004" from the drop down and Save and Return
@@ -42,7 +42,7 @@ Scenario: Add a single time to the filter job
 @cmd
 Scenario: Add a time range to the filter job
 
-    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
+    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c/editions/2016/versions/1"
     When I click the "time" type dimension link
     And I click the third radio button
     And I select "June" "2001" to "August" "2001" from the range drop down and Save and Return
@@ -51,7 +51,7 @@ Scenario: Add a time range to the filter job
 @cmd
 Scenario: Add a list of times to the filter job
 
-    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
+    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c/editions/2016/versions/1"
     When I click the "time" type dimension link
     And I click the fourth radio button
     And I select "February-1999", "January-2004" and "December-2007" from the list and Save and Return
@@ -60,7 +60,7 @@ Scenario: Add a list of times to the filter job
 @cmd
 Scenario: The most recent time selection overrides any previous selections
 
-    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
+    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c/editions/2016/versions/1"
     When I click the "time" type dimension link
     And I click the third radio button
     And I select "June" "2001" to "August" "2001" from the range drop down and Save and Return
@@ -72,7 +72,7 @@ Scenario: The most recent time selection overrides any previous selections
 @cmd
 Scenario: Add all of the available times
 
-    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
+    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c/editions/2016/versions/1"
     When I click the "time" type dimension link
     And I click the fourth radio button
     When I click the add all button and Save and Return
@@ -80,7 +80,7 @@ Scenario: Add all of the available times
 
 @cmd
 Scenario: Add all of the top level goods and services
-    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
+    Given I have created a new filter job for dataset: "95c4669b-3ae9-4ba7-b690-87e890a1c67c/editions/2016/versions/1"
     When I click the "aggregate" type dimension link
     And I click the add all button and Save and Return
     Then the filter options for goods and services contains the result "12 items added.+"
@@ -94,14 +94,14 @@ Scenario: Add all of the top level goods and services
 @cmd
 Scenario: Give positive feedback via feedback form
 
-    Given I open the the dataset landing page with id "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
+    Given I open the the dataset landing page with id "95c4669b-3ae9-4ba7-b690-87e890a1c67c/editions/2016/versions/1"
     When I click the "yes" button on the feedback form
     Then the feedback header says "Thanks for your feedback."
 
 @cmd
 Scenario: Give negative feedback via feedback form
 
-    Given I open the the dataset landing page with id "95c4669b-3ae9-4ba7-b690-87e890a1c67c"
+    Given I open the the dataset landing page with id "95c4669b-3ae9-4ba7-b690-87e890a1c67c/editions/2016/versions/1"
     When I click the "no" button on the feedback form
     And I click on the Send message button
     Then an error saying "Description can't be blank" appears
@@ -109,4 +109,9 @@ Scenario: Give negative feedback via feedback form
     And I click on the Send message button
     Then the feedback header says "Thanks for your feedback."
 
+@cmd
+Scenario: Access an edition page from the editions list page
 
+    Given I open the dataset editons list page with url "95c4669b-3ae9-4ba7-b690-87e890a1c67c/"
+    When I click the "2016" link
+    Then the user is taken to the dataset landing page with title "CPI - Office for National Statistics"
