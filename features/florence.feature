@@ -1,6 +1,6 @@
 Feature: Florence journey
 
-@florence
+# @florence
 Scenario: Login To Florence
 
     Given I open the florence login page
@@ -10,7 +10,7 @@ Scenario: Login To Florence
     Then I should be on the florence homepage
     And I logout
 
-@florence
+# @florence
 Scenario: Dataset journey
 
     Given I open the florence login page
@@ -27,7 +27,7 @@ Scenario: Dataset journey
     Then the dataset details page is available for dataset id: "931a8a2a-0dc8-42b6-a884-7b6054ed3b68"
     And I logout from new florence
 
-@florence
+# @florence
 Scenario: Instance & version journey
 
     Given I open the florence login page

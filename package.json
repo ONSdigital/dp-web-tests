@@ -4,10 +4,11 @@
   "description": "Automated tests for dp websites",
   "main": "index.js",
   "scripts": {
-    "start:chrome": "nightwatch --tag cmd --env chrome",
+    "start:chrome": "nightwatch --env chrome",
+    "start:chrome:florence": "nightwatch --tag florence --env chrome",
     "start:chrome-florence": "nightwatch --tag florence --env chrome",
-    "start:firefox": "nightwatch --tag cmd --env firefox",
-    "start:safari": "nightwatch --tag cmd --env safari",
+    "start:firefox": "nightwatch --env firefox",
+    "start:safari": "nightwatch --env safari",
     "start:parallel-single-browser": "nightwatch --tag cmd --env chrome",
     "start:parallel-multiple-browser": "nightwatch --tag cmd --env chrome,firefox",
     "start:parallel-all-browser": "nightwatch --tag cmd --env chrome,firefox,safari"
