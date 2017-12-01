@@ -2,7 +2,7 @@ Feature: Login failures
 
 User fails to log in (for various reasons)
 
-@florence @login @failure
+@florence @login @failure 
 Scenario: Don't enter an email and password I stay on the login page
 
     Given I am on the login page

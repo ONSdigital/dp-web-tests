@@ -6,7 +6,7 @@ module.exports = {
         loginButton: 'button[type="submit"]'
     },
     commands: [{
-        attemptLogin: function(client) {
+        attemptLogin: function() {
             return this.click('@loginButton');
         },
         waitForLoad: function() {

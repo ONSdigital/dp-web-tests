@@ -1,3 +1,4 @@
+const {client} = require('nightwatch-cucumber');
 const {defineSupportCode} = require('cucumber');
 var MongoClient = require('mongodb').MongoClient;
 
@@ -54,18 +55,34 @@ function teardown() {
 
 defineSupportCode(({BeforeAll, AfterAll}) => {
     BeforeAll(() => {
-        // setup();
+        // TODO only run this datasets setup when we have the correct tags that need that data 
+        setup();
     })
-    // BeforeAll( function() {
-    //     // TODO only run this datasets setup when we have the correct tags that need that data 
-    //     setup();
-    // })
     AfterAll( function() {
     })
 })
 
 defineSupportCode(({Before, After}) => {
-    Before((test) => {
-        // TODO for Florence tests (that aren't login itself) then run the login happy path test first 
+    Before(test => {
+            const needsLoggingIn = (
+                test.pickle.tags.some(tag => tag.name === "@florence")
+                &&
+                !test.pickle.tags.some(tag => tag.name === "@login")
+            )
+            if (needsLoggingIn) {
+                console.log('Running Florence login before test');
+                client.url(client.page.loginPage().url)
+                    .page.loginPage()
+                    .waitForLoad()
+                    .setValue('@emailInput', 'florence@magicroundabout.ons.gov.uk')
+                    .setValue('@passwordInput', 'one two three four')
+                    .attemptLogin()
+
+                return client.page.globalNav().waitForLoad()
+            }
+            return client.init();
     });
+    After(() => {
+        client.end();
+    })
 })
