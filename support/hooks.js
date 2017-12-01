@@ -56,7 +56,7 @@ function teardown() {
 defineSupportCode(({BeforeAll, AfterAll}) => {
     BeforeAll(() => {
         // TODO only run this datasets setup when we have the correct tags that need that data 
-        setup();
+        // setup();
     })
     AfterAll( function() {
     })
@@ -80,7 +80,7 @@ defineSupportCode(({Before, After}) => {
 
                 return client.page.globalNav().waitForLoad()
             }
-            return client.init();
+            return client.url();
     });
     After(() => {
         client.end();
