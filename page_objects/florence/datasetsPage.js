@@ -5,11 +5,7 @@ module.exports = {
             selector: "//h1[contains(text(), 'Select a dataset')]",
             locateStrategy: 'xpath'
         },
-        datasetWithVersionTitle: {
-            selector: "//summary[@class='selectable-table__summary']//*[contains(text(), 'Acceptance test')]",
-            locateStrategy: 'xpath'
-        },
-        datasetWithInstanceTitle: {
+        datasetTitle: {
             selector: "//summary[@class='selectable-table__summary']//*[contains(text(), 'Acceptance test')]",
             locateStrategy: 'xpath'
         },

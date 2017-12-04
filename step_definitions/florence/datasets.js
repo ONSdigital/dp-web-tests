@@ -27,7 +27,7 @@ defineSupportCode(({Given, Then, When}) => {
     */
     When(/^I select any dataset/, () => {
         return datasetsPage
-            .click('@datasetWithVersionTitle')
+            .click('@datasetTitle')
             .waitForElementVisible('@datasetDetails', 1000)
     });
 
@@ -48,7 +48,7 @@ defineSupportCode(({Given, Then, When}) => {
     */
     When(/^I select a dataset with a new version/, () => {
         return datasetsPage
-            .click('@datasetWithVersionTitle')
+            .click('@datasetTitle')
             .waitForElementVisible('@datasetDetails', 1000)
     });
 
@@ -69,7 +69,7 @@ defineSupportCode(({Given, Then, When}) => {
     */
     When(/^I select a dataset with a new instance/, () => {
         return datasetsPage
-            .click('@datasetWithInstanceTitle')
+            .click('@datasetTitle')
             .waitForElementVisible('@datasetDetails', 1000)
     });
 
