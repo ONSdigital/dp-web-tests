@@ -36,7 +36,7 @@ function setup() {
 
 function teardown() {
     console.log("tearing down test data")
-
+    
     MongoClient.connect(datasetCollection, function(err, db) {
         if (err) throw err;
 
@@ -60,7 +60,7 @@ defineSupportCode(({BeforeAll, AfterAll}) => {
     })
     AfterAll( function() {
         // TODO only run this datasets setup when we have the correct tags that need that data 
-        teardown();
+        // teardown();
     })
 })
 

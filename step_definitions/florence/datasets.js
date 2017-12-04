@@ -15,18 +15,6 @@ defineSupportCode(({Given, Then, When}) => {
             .navigate()
             .waitForLoad();
     });
-    
-    When(/^I select a dataset with a new version/, () => {
-        return datasetsPage
-            .click('@datasetWithVersionTitle')
-            .waitForElementVisible('@datasetDetails', 1000)
-    });
-    
-    When(/^I select a dataset with a new instance/, () => {
-        return datasetsPage
-            .click('@datasetWithInstanceTitle')
-            .waitForElementVisible('@datasetDetails', 1000)
-    });
 
     Then(/^I can see a dataset's available actions/, () => {
         return datasetsPage
@@ -37,10 +25,16 @@ defineSupportCode(({Given, Then, When}) => {
     /*
     Access the 'edit metadata' screen for a dataset
     */
+    When(/^I select any dataset/, () => {
+        return datasetsPage
+            .click('@datasetWithVersionTitle')
+            .waitForElementVisible('@datasetDetails', 1000)
+    });
+
     When(/^I click the 'edit metadata' link/, () => {
         return datasetsPage
             .click('@datasetMetadataLink')
-            .assert.urlEquals(datasetMetadataPage.url('466'))
+            .assert.urlEquals(datasetMetadataPage.url('931a8a2a-0dc8-42b6-a884-7b6054ed3b68'))
     });
     
     Then(/^I see the dataset metadata page/, () => {
@@ -52,10 +46,16 @@ defineSupportCode(({Given, Then, When}) => {
     /*
     Access the 'edit metadata' screen for a version
     */
+    When(/^I select a dataset with a new version/, () => {
+        return datasetsPage
+            .click('@datasetWithVersionTitle')
+            .waitForElementVisible('@datasetDetails', 1000)
+    });
+
     When(/^I click the 'edit version metadata' link/, () => {
         return datasetsPage
             .click('@datasetVersionLink')
-            .assert.urlEquals(versionMetadataPage.url('466', 'Time-series', '1'));
+            .assert.urlEquals(versionMetadataPage.url('931a8a2a-0dc8-42b6-a884-7b6054ed3b68', 'Time-series', '2'));
     });
 
     Then(/^I see the version metadata page/, () => {
@@ -67,10 +67,16 @@ defineSupportCode(({Given, Then, When}) => {
     /*
     Access the 'edit metadata' screen for a instance
     */
+    When(/^I select a dataset with a new instance/, () => {
+        return datasetsPage
+            .click('@datasetWithInstanceTitle')
+            .waitForElementVisible('@datasetDetails', 1000)
+    });
+
     When(/^I click the 'edit instance metadata' link/, () => {
         return datasetsPage
             .click('@datasetInstanceLink')
-            .assert.urlEquals(instanceMetadataPage.url('95c4669b-3ae9-4ba7-b690-87e890a1c67c', 'f20549a3-485e-4b61-82da-29f2f1064583'));
+            .assert.urlEquals(instanceMetadataPage.url('931a8a2a-0dc8-42b6-a884-7b6054ed3b68', '65b08a7d-85be-44e1-9743-df913217b782'));
     });
 
     Then(/^I see the instance metadata page/, () => {

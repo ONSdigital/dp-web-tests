@@ -6,11 +6,11 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         datasetWithVersionTitle: {
-            selector: "//summary[@class='selectable-table__summary']//*[contains(text(), '466')]",
+            selector: "//summary[@class='selectable-table__summary']//*[contains(text(), 'Acceptance test')]",
             locateStrategy: 'xpath'
         },
         datasetWithInstanceTitle: {
-            selector: "//summary[@class='selectable-table__summary']//*[contains(text(), 'CPI')]",
+            selector: "//summary[@class='selectable-table__summary']//*[contains(text(), 'Acceptance test')]",
             locateStrategy: 'xpath'
         },
         datasetDetails: {
@@ -22,11 +22,11 @@ module.exports = {
             locateStrategy: "xpath"
         },
         datasetVersionLink: {
-            selector: "details[open] summary ~* a[href$='datasets/466/editions/Time-series/versions/1/metadata']",
+            selector: "details[open] summary ~* a[href$='datasets/931a8a2a-0dc8-42b6-a884-7b6054ed3b68/editions/Time-series/versions/2/metadata']",
             locateStrategy: "css selector"
         },
         datasetInstanceLink: {
-            selector: "details[open] summary ~* a[href$='datasets/95c4669b-3ae9-4ba7-b690-87e890a1c67c/instances/f20549a3-485e-4b61-82da-29f2f1064583/metadata']",
+            selector: "details[open] summary ~* a[href$='datasets/931a8a2a-0dc8-42b6-a884-7b6054ed3b68/instances/65b08a7d-85be-44e1-9743-df913217b782/metadata']",
             locateStrategy: "css selector"
         }
     },
