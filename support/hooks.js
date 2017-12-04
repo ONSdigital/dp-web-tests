@@ -35,22 +35,24 @@ function setup() {
 }
 
 function teardown() {
-    console.log("tearing down test data")
+    console.log("tearing down test data");
+
+    function removeCollection(db, collectionName) {
+        db.collection(collectionName).remove({ acceptance_test : true }, function(err, obj) {
+            if (err) throw err;
+            console.log(collectionName + ": " + obj.result.n + " document(s) deleted");
+        });
+    }
     
     MongoClient.connect(datasetCollection, function(err, db) {
         if (err) throw err;
 
         for (var i in collections) {
-            var query = { acceptance_test : true };
-
-            db.collection(collections[i]).remove(query, function(err, obj) {
-                if (err) throw err;
-                console.log(obj.result.n + " document(s) deleted");
-            });
+            removeCollection(db, collections[i]);
         }
 
         db.close();
-    })
+    });
 }
 
 defineSupportCode(({BeforeAll, AfterAll}) => {
