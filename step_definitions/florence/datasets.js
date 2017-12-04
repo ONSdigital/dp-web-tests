@@ -4,6 +4,7 @@ var {defineSupportCode} = require('cucumber');
 var datasetsPage = client.page.datasetsPage();
 var datasetMetadataPage = client.page.datasetMetadataPage();
 var versionMetadataPage = client.page.versionMetadataPage();
+var instanceMetadataPage = client.page.instanceMetadataPage();
 
 defineSupportCode(({Given, Then, When}) => {
     /*
@@ -15,16 +16,21 @@ defineSupportCode(({Given, Then, When}) => {
             .waitForLoad();
     });
     
-    When(/^I select a dataset/, () => {
+    When(/^I select a dataset with a new version/, () => {
         return datasetsPage
-            .click('@datasetTitle')
+            .click('@datasetWithVersionTitle')
+            .waitForElementVisible('@datasetDetails', 1000)
+    });
+    
+    When(/^I select a dataset with a new instance/, () => {
+        return datasetsPage
+            .click('@datasetWithInstanceTitle')
             .waitForElementVisible('@datasetDetails', 1000)
     });
 
     Then(/^I can see a dataset's available actions/, () => {
         return datasetsPage
             .assert.visible('@datasetMetadataLink')
-            .assert.visible('@datasetVersionLink')
     });
 
 
@@ -44,7 +50,7 @@ defineSupportCode(({Given, Then, When}) => {
 
 
     /*
-    Access the 'edit version metadata' screen for a dataset
+    Access the 'edit metadata' screen for a version
     */
     When(/^I click the 'edit version metadata' link/, () => {
         return datasetsPage
@@ -54,6 +60,21 @@ defineSupportCode(({Given, Then, When}) => {
 
     Then(/^I see the version metadata page/, () => {
         return versionMetadataPage
+            .waitForLoad();
+    });
+    
+    
+    /*
+    Access the 'edit metadata' screen for a instance
+    */
+    When(/^I click the 'edit instance metadata' link/, () => {
+        return datasetsPage
+            .click('@datasetInstanceLink')
+            .assert.urlEquals(instanceMetadataPage.url('95c4669b-3ae9-4ba7-b690-87e890a1c67c', 'f20549a3-485e-4b61-82da-29f2f1064583'));
+    });
+
+    Then(/^I see the instance metadata page/, () => {
+        return instanceMetadataPage
             .waitForLoad();
     });
 });
