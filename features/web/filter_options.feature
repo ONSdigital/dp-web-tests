@@ -24,4 +24,4 @@ Scenario: Clear filters that have been applied
     Then I am navigated to the filter options page
     Then I can see I have '1' filter(s) applied
     When I clear my applied filters
-    # Then I can see I have '0' filters applied
+    Then I can see I have '0' filter(s) applied
