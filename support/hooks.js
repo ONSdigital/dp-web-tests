@@ -58,7 +58,7 @@ function teardown() {
 defineSupportCode(({BeforeAll, AfterAll}) => {
     BeforeAll(() => {
         // TODO only run this datasets setup when we have the correct tags that need that data 
-        // setup();
+        setup();
     })
     AfterAll( function() {
         // TODO only run this datasets setup when we have the correct tags that need that data 
