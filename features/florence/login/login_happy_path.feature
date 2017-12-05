@@ -2,7 +2,7 @@ Feature: Login happy path
 
 Users should be able to access the rest of Florence by entering a correct email address and password on the login screen.
 
-@florence @login @happy_path
+@florence @login @happy_path @smoke
 Scenario: Submit correct email and password
 
     Given I am on the login page
@@ -10,7 +10,7 @@ Scenario: Submit correct email and password
     Then I should see the collections screen
     Then I log out
 
-@florence @login @happy_path
+@florence @login @happy_path @smoke
 Scenario: Redirect on successful login
 
     Given I go to the teams screen

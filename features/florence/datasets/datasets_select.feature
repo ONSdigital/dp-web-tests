@@ -2,7 +2,7 @@ Feature: Select a dataset
 
 Users can view all datasets available and can access screens to edit them or new versions
 
-@florence @datasets @happy_path
+@florence @datasets @happy_path @smoke
 Scenario: Access the 'edit metadata' screen for a dataset
 
     Given I go to the datasets page
@@ -11,7 +11,7 @@ Scenario: Access the 'edit metadata' screen for a dataset
     When I click the 'edit metadata' link
     Then I see the dataset metadata page
 
-@florence @datasets @happy_path
+@florence @datasets @happy_path @smoke
 Scenario: Access the 'edit metadata' screen for a version
 
     Given I go to the datasets page
@@ -20,7 +20,7 @@ Scenario: Access the 'edit metadata' screen for a version
     When I click the 'edit version metadata' link
     Then I see the version metadata page
 
-@florence @datasets @happy_path
+@florence @datasets @happy_path @smoke
 Scenario: Access the 'edit metadata' screen for an instance
 
     Given I go to the datasets page

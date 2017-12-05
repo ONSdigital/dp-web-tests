@@ -2,7 +2,7 @@ Feature: Dimensions to filter a dataset on
 
 Users can select dimensions that they want to filter the dataset by and proceed to the download and preview screen
 
-@web @datasets @happy_path
+@web @datasets @happy_path @smoke
 Scenario: Access multiple filters from the filter options page
 
     Given I go to the filter options page
@@ -25,3 +25,5 @@ Scenario: Clear filters that have been applied
     Then I can see I have '1' filter(s) applied
     When I clear my applied filters
     Then I can see I have '0' filter(s) applied
+
+# TODO Scenario: Disable button to continue to preview and download screen
