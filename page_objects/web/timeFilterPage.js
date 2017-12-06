@@ -12,6 +12,10 @@ module.exports = {
             selector: '#time-selection-latest',
             locateStrategy: 'css selector'
         },
+        rangeDateOption: {
+            selector: '#time-selection-range',
+            locateStrategy: 'css selector'
+        },
         singleDateOption: {
             selector: '#time-selection-single',
             locateStrategy: 'css selector'
@@ -22,6 +26,22 @@ module.exports = {
         },
         singleYearSelect: {
             selector: '#year-single',
+            locateStrategy: 'css selector'
+        },
+        rangeStartMonthSelect: {
+            selector: '#start-month',
+            locateStrategy: 'css selector'
+        },
+        rangeStartYearSelect: {
+            selector: '#start-year',
+            locateStrategy: 'css selector'
+        },
+        rangeEndMonthSelect: {
+            selector: '#end-month',
+            locateStrategy: 'css selector'
+        },
+        rangeEndYearSelect: {
+            selector: '#end-year',
             locateStrategy: 'css selector'
         }
     },

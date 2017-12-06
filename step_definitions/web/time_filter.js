@@ -26,6 +26,10 @@ defineSupportCode(({Given, Then, When}) => {
                 return timeFilterPage
                     .click('@singleDateOption');
             }
+            case('range'): {
+                return timeFilterPage
+                    .click('@rangeDateOption');
+            }
         }
     });
     
@@ -39,6 +43,10 @@ defineSupportCode(({Given, Then, When}) => {
                 return timeFilterPage
                     .dateOptionIsChecked('singleDateOption');
             }
+            case('range'): {
+                return timeFilterPage
+                    .dateOptionIsChecked('rangeDateOption');
+            }
         }
     });
 
@@ -51,7 +59,7 @@ defineSupportCode(({Given, Then, When}) => {
             .saveAndReturn();
     });
 
-    Then(/^I can see I have '([^"]*)' time filter applied/, filterCount => {
+    Then(/^I can see I have '([^"]*)' time filter\(s\) applied/, filterCount => {
         return filterOptionsPage
             .getText('@timeFilterNumberAdded', result => {
                 const count = result.value.substr(0, result.value.indexOf(' item'));
@@ -81,5 +89,32 @@ defineSupportCode(({Given, Then, When}) => {
     Then(/^I can see the month and year have been selected/, () => {
         timeFilterPage.expect.element('@singleMonthSelect').to.have.value.that.equals('June')
         return timeFilterPage.expect.element('@singleYearSelect').to.have.value.that.equals('2000');
+    });
+
+
+    /*
+    Add a time range to the filter job
+    */
+    When(/^I select a date range/, () => {
+        return timeFilterPage
+            .click('@rangeStartMonthSelect')
+            .waitForElementVisible('@rangeStartMonthSelect', 1000)
+            .click(timeFilterPage.elements.rangeStartMonthSelect.selector + ' option[value="June"]')
+            .click('@rangeStartYearSelect')
+            .waitForElementVisible('@rangeStartYearSelect', 1000)
+            .click(timeFilterPage.elements.rangeStartYearSelect.selector + ' option[value="2000"]')
+            .click('@rangeEndMonthSelect')
+            .waitForElementVisible('@rangeEndMonthSelect', 1000)
+            .click(timeFilterPage.elements.rangeEndMonthSelect.selector + ' option[value="July"]')
+            .click('@rangeEndYearSelect')
+            .waitForElementVisible('@rangeEndYearSelect', 1000)
+            .click(timeFilterPage.elements.rangeEndYearSelect.selector + ' option[value="2001"]');
+    });
+
+    Then(/^I can see the date range has been selected/, () => {
+        timeFilterPage.expect.element('@rangeStartMonthSelect').to.have.value.that.equals('June')
+        timeFilterPage.expect.element('@rangeStartYearSelect').to.have.value.that.equals('2000');
+        timeFilterPage.expect.element('@rangeEndMonthSelect').to.have.value.that.equals('July')
+        return timeFilterPage.expect.element('@rangeEndYearSelect').to.have.value.that.equals('2001');
     });
 })
