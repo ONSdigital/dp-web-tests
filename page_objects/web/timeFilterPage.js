@@ -15,6 +15,14 @@ module.exports = {
         singleRangeDateOption: {
             selector: '#time-selection-single',
             locateStrategy: 'css selector'
+        },
+        singleMonthSelect: {
+            selector: '#month-single',
+            locateStrategy: 'css selector'
+        },
+        singleYearSelect: {
+            selector: '#year-single',
+            locateStrategy: 'css selector'
         }
     },
     commands: [{

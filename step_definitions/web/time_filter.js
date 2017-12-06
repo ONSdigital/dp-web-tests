@@ -16,20 +16,36 @@ defineSupportCode(({Given, Then, When}) => {
             .waitForLoad();
     });
 
+    When(/^I select the '([^"]*)' option/, dateOption => {
+        switch(dateOption) {
+            case('latest date'): {
+                return timeFilterPage
+                    .click('@latestDateOption');
+            }
+            case('single range'): {
+                return timeFilterPage
+                    .click('@singleRangeDateOption');
+            }
+        }
+    });
     
+    Then(/^I can see that the '([^"]*)' option is checked/, dateOption => {
+        switch(dateOption) {
+            case('latest date'): {
+                return timeFilterPage
+                    .dateOptionIsChecked('latestDateOption');
+            }
+            case('single range'): {
+                return timeFilterPage
+                    .dateOptionIsChecked('singleRangeDateOption');
+            }
+        }
+    });
+
+
     /*
     Add the latest available time to filter job
     */
-    When(/^I select the 'latest date' option/, () => {
-        return timeFilterPage
-            .click('@latestDateOption')
-    });
-    
-    Then(/^I can see that the 'latest date' option is checked/, () => {
-        return timeFilterPage
-            .dateOptionIsChecked('latestDateOption');
-    });
-
     When(/^I save my selection(s)/, () => {
         return filterPage
             .saveAndReturn();
@@ -47,4 +63,23 @@ defineSupportCode(({Given, Then, When}) => {
         return filterOptionsPage
             .click('@clearAllLink');
     })
+
+
+    /*
+    Add a single time to the filter job
+    */
+    When(/^I select a single month and year/, () => {
+        return timeFilterPage
+            .click('@singleMonthSelect')
+            .waitForElementVisible('@singleMonthSelect', 1000)
+            .click(timeFilterPage.elements.singleMonthSelect.selector + ' option[value="June"]')
+            .click('@singleYearSelect')
+            .waitForElementVisible('@singleYearSelect', 1000)
+            .click(timeFilterPage.elements.singleYearSelect.selector + ' option[value="2000"]');
+    });
+
+    Then(/^I can see the month and year have been selected/, () => {
+        timeFilterPage.expect.element('@singleMonthSelect').to.have.value.that.equals('June')
+        return timeFilterPage.expect.element('@singleYearSelect').to.have.value.that.equals('2000');
+    });
 })
