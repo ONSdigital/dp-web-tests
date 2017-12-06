@@ -66,3 +66,16 @@ Scenario: Selecting the latest available time overrides a previous selection
     Then I am navigated to the filter options page
     Then I can see I have '1' time filter(s) applied
     Then I cleared the filters I'd applied
+
+@web @datasets @happy_path
+Scenario: Add all of the available times
+
+    Given I go to the 'time' filter page
+    When I select the 'list' option
+    Then I can see that the 'list' option is checked
+    When I click the 'add all' link
+    Then I can see all available times have been selected
+    When I save my selection(s)
+    Then I am navigated to the filter options page
+    Then I can see I have 'all' time filter(s) applied
+    Then I cleared the filters I'd applied

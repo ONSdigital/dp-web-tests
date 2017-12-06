@@ -47,6 +47,14 @@ module.exports = {
         rangeEndYearSelect: {
             selector: '#end-year',
             locateStrategy: 'css selector'
+        },
+        addAllLink: {
+            selector: '#add-all',
+            locateStrategy: 'css selector'
+        },
+        listDateOptionCheckbox: {
+            selector: '.multiple-choice__content input[type="checkbox"]',
+            locateStrategy: 'css selector'
         }
     },
     commands: [{
@@ -65,6 +73,20 @@ module.exports = {
                 return this.api.elementIdSelected(result.value.ELEMENT, response => {
                     return this.verify.ok(response.value, dateID + " is checked");
                 });
+            });
+        },
+        allListDateOptionsAreChecked: function(done) {
+            return this.api.elements(this.elements.listDateOptionCheckbox.locateStrategy, this.elements.listDateOptionCheckbox.selector, results => {
+                results.value.forEach(result => {
+                    return this.api.elementIdSelected(result.ELEMENT, response => {
+                        return this.verify.ok(response.value, "Time checkbox is checked");
+                    });
+                })
+            });
+        },
+        numberOfAvailableTimes: function(done) {
+            return this.api.elements('css selector', '.multiple-choice__content input[type="checkbox"]', result => {
+                done(result.value.length);
             });
         }
     }]

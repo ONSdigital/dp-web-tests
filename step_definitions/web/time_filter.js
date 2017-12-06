@@ -6,6 +6,7 @@ var filterPage = client.page.filterPage();
 var filterOptionsPage = client.page.filterOptionsPage();
 
 defineSupportCode(({Given, Then, When}) => {
+    var numberOfAvailableTimes;
 
     /*
     Reused across scenarios
@@ -58,10 +59,6 @@ defineSupportCode(({Given, Then, When}) => {
         }
     });
 
-
-    /*
-    Add the latest available time to filter job
-    */
     When(/^I save my selection(s)/, () => {
         return filterPage
             .saveAndReturn();
@@ -71,6 +68,11 @@ defineSupportCode(({Given, Then, When}) => {
         return filterOptionsPage
             .getText('@timeFilterNumberAdded', result => {
                 const count = result.value.substr(0, result.value.indexOf(' item'));
+
+                if (filterCount === "all") {
+                    filterOptionsPage.assert.equal(count, numberOfAvailableTimes, 'All filters are applied');
+                    return;
+                }
                 filterOptionsPage.assert.equal(count, filterCount);
             })
     });
@@ -145,5 +147,22 @@ defineSupportCode(({Given, Then, When}) => {
         timeFilterPage.listDateOptionIsChecked("#id-January-2000")
         timeFilterPage.listDateOptionIsChecked("#id-October-2009")
         return timeFilterPage.listDateOptionIsChecked("#id-April-1999");
+    });
+
+
+    /*
+    Add all of the available times
+    */
+    When(/^I click the 'add all' link/, () => {
+        return timeFilterPage
+            .click('@addAllLink');
+    });
+
+    Then(/^I can see all available times have been selected/, () => {
+        timeFilterPage.numberOfAvailableTimes(count => {
+            numberOfAvailableTimes = count;
+        });
+        return timeFilterPage
+            .allListDateOptionsAreChecked();
     });
 })
