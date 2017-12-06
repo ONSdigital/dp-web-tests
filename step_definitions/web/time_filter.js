@@ -30,6 +30,10 @@ defineSupportCode(({Given, Then, When}) => {
                 return timeFilterPage
                     .click('@rangeDateOption');
             }
+            case('list'): {
+                return timeFilterPage
+                    .click('@listDateOption');
+            }
         }
     });
     
@@ -46,6 +50,10 @@ defineSupportCode(({Given, Then, When}) => {
             case('range'): {
                 return timeFilterPage
                     .dateOptionIsChecked('rangeDateOption');
+            }
+            case('list'): {
+                return timeFilterPage
+                    .dateOptionIsChecked('listDateOption');
             }
         }
     });
@@ -116,5 +124,26 @@ defineSupportCode(({Given, Then, When}) => {
         timeFilterPage.expect.element('@rangeStartYearSelect').to.have.value.that.equals('2000');
         timeFilterPage.expect.element('@rangeEndMonthSelect').to.have.value.that.equals('July')
         return timeFilterPage.expect.element('@rangeEndYearSelect').to.have.value.that.equals('2001');
+    });
+
+
+    /*
+    Add a list of times to the filter job
+    */
+    When(/^I select dates from the list/, () => {
+        // Selenium has issues clicking a checkbox, but clicking the related label works
+        // for info https://github.com/nightwatchjs/nightwatch/issues/362
+        return timeFilterPage
+            .click('#id-June-2015 ~ .checkbox__label')
+            .click('#id-January-2000 ~ .checkbox__label')
+            .click('#id-October-2009 ~ .checkbox__label')
+            .click('#id-April-1999 ~ .checkbox__label');
+    });
+
+    Then(/^I can see the dates have been selected/, () => {
+        timeFilterPage.listDateOptionIsChecked("#id-June-2015")
+        timeFilterPage.listDateOptionIsChecked("#id-January-2000")
+        timeFilterPage.listDateOptionIsChecked("#id-October-2009")
+        return timeFilterPage.listDateOptionIsChecked("#id-April-1999");
     });
 })
