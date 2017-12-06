@@ -77,7 +77,7 @@ defineSupportCode(({Given, Then, When}) => {
             })
     });
     
-    Then(/^I cleared the filters I'd applied/, () => {
+    Then(/^I clear the filters I applied/, () => {
         return filterOptionsPage
             .click('@clearAllLink');
     })

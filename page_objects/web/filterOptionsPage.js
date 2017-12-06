@@ -25,7 +25,11 @@ module.exports = {
             locateStrategy: 'css selector'
         },
         timeFilterNumberAdded: {
-            selector: '#number-added-Time',
+            selector: '#number-added-time',
+            locateStrategy: 'css selector'
+        },
+        hierarchyNumberAdded: {
+            selector: '#number-added-goods-and-services',
             locateStrategy: 'css selector'
         }
     },

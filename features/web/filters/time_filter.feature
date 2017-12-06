@@ -11,7 +11,7 @@ Scenario: Add the latest available time to filter job
     When I save my selection(s)
     Then I am navigated to the filter options page
     Then I can see I have '1' time filter(s) applied
-    Then I cleared the filters I'd applied
+    Then I clear the filters I applied
 
 @web @datasets @happy_path
 Scenario: Add a single time to the filter job
@@ -24,7 +24,7 @@ Scenario: Add a single time to the filter job
     When I save my selection(s)
     Then I am navigated to the filter options page
     Then I can see I have '1' time filter(s) applied
-    Then I cleared the filters I'd applied
+    Then I clear the filters I applied
 
 @web @datasets @happy_path
 Scenario: Add a time range to the filter job
@@ -37,7 +37,7 @@ Scenario: Add a time range to the filter job
     When I save my selection(s)
     Then I am navigated to the filter options page
     Then I can see I have '14' time filter(s) applied
-    Then I cleared the filters I'd applied
+    Then I clear the filters I applied
 
 @web @datasets @happy_path
 Scenario: Add a list of times to the filter job
@@ -50,7 +50,7 @@ Scenario: Add a list of times to the filter job
     When I save my selection(s)
     Then I am navigated to the filter options page
     Then I can see I have '4' time filter(s) applied
-    Then I cleared the filters I'd applied
+    Then I clear the filters I applied
 
 @web @datasets @happy_path
 Scenario: Selecting the latest available time overrides a previous selection
@@ -65,7 +65,7 @@ Scenario: Selecting the latest available time overrides a previous selection
     When I save my selection(s)
     Then I am navigated to the filter options page
     Then I can see I have '1' time filter(s) applied
-    Then I cleared the filters I'd applied
+    Then I clear the filters I applied
 
 @web @datasets @happy_path
 Scenario: Add all of the available times
@@ -78,4 +78,4 @@ Scenario: Add all of the available times
     When I save my selection(s)
     Then I am navigated to the filter options page
     Then I can see I have 'all' time filter(s) applied
-    Then I cleared the filters I'd applied
+    Then I clear the filters I applied
