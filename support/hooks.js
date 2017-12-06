@@ -62,7 +62,7 @@ defineSupportCode(({BeforeAll, AfterAll}) => {
     })
     AfterAll( function() {
         // TODO only run this datasets setup when we have the correct tags that need that data 
-        // teardown();
+        teardown();
     })
 })
 

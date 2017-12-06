@@ -23,6 +23,10 @@ module.exports = {
         clearAllLink: {
             selector: 'a[href$="/dimensions/clear-all"]',
             locateStrategy: 'css selector'
+        },
+        timeFilterNumberAdded: {
+            selector: '#number-added-Time',
+            locateStrategy: 'css selector'
         }
     },
     commands: [{

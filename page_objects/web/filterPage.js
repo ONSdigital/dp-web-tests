@@ -11,7 +11,7 @@ module.exports = {
             locateStrategy: 'css selector'
         },
         saveButton: {
-            selector: '#filter-form *[name="save-and-return"]',
+            selector: 'form *[name="save-and-return"]',
             locateStrategy: 'css selector'
         }
     },
