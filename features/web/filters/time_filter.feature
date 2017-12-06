@@ -51,3 +51,18 @@ Scenario: Add a list of times to the filter job
     Then I am navigated to the filter options page
     Then I can see I have '4' time filter(s) applied
     Then I cleared the filters I'd applied
+
+@web @datasets @happy_path
+Scenario: Selecting the latest available time overrides a previous selection
+
+    Given I go to the 'time' filter page
+    When I select the 'single time' option
+    Then I can see that the 'single time' option is checked
+    When I select a single month and year
+    Then I can see the month and year have been selected
+    When I select the 'latest date' option
+    Then I can see that the 'latest date' option is checked
+    When I save my selection(s)
+    Then I am navigated to the filter options page
+    Then I can see I have '1' time filter(s) applied
+    Then I cleared the filters I'd applied
