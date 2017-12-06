@@ -24,7 +24,7 @@ defineSupportCode(({Given, Then, When}) => {
             }
             case('single time'): {
                 return timeFilterPage
-                    .click('@singleRangeDateOption');
+                    .click('@singleDateOption');
             }
         }
     });
@@ -37,7 +37,7 @@ defineSupportCode(({Given, Then, When}) => {
             }
             case('single time'): {
                 return timeFilterPage
-                    .dateOptionIsChecked('singleRangeDateOption');
+                    .dateOptionIsChecked('singleDateOption');
             }
         }
     });
