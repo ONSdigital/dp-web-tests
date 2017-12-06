@@ -22,7 +22,7 @@ defineSupportCode(({Given, Then, When}) => {
                 return timeFilterPage
                     .click('@latestDateOption');
             }
-            case('single range'): {
+            case('single time'): {
                 return timeFilterPage
                     .click('@singleRangeDateOption');
             }
@@ -35,7 +35,7 @@ defineSupportCode(({Given, Then, When}) => {
                 return timeFilterPage
                     .dateOptionIsChecked('latestDateOption');
             }
-            case('single range'): {
+            case('single time'): {
                 return timeFilterPage
                     .dateOptionIsChecked('singleRangeDateOption');
             }

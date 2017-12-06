@@ -17,8 +17,8 @@ Scenario: Add the latest available time to filter job
 Scenario: Add a single time to the filter job
 
     Given I go to the 'time' filter page
-    When I select the 'single range' option
-    Then I can see that the 'single range' option is checked
+    When I select the 'single time' option
+    Then I can see that the 'single time' option is checked
     When I select a single month and year
     Then I can see the month and year have been selected
     When I save my selection(s)
