@@ -7,4 +7,13 @@ Scenario: Give positive feedback via feedback form
 
     Given I go to the filter options page
     When I click the 'positive' feedback button
-    Then I can see my feedback has been sent
+    Then I get confirmation that my feedback has been sent
+
+@web @happy_path
+Scenario: Give negative feedback via feedback form
+
+    Given I go to the filter options page
+    When I click the 'negative' feedback button
+    Then I can see a form to submit my feedback
+    When I add and send my feedback
+    Then I get confirmation that my feedback has been sent
