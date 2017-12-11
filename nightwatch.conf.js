@@ -5,8 +5,8 @@ const geckodriver = require('geckodriver')
 
 require('nightwatch-cucumber')({
   cucumberArgs: [
-    '--require', 'features/step_definitions',
-    '--require', 'features/support/hooks.js',
+    '--require', 'step_definitions',
+    '--require', 'support/hooks.js',
     '--format', 'json:reports/cucumber.json',
     'features'
   ]
@@ -15,7 +15,7 @@ require('nightwatch-cucumber')({
 module.exports = {
   output_folder: 'reports',
   custom_assertions_path: '',
-  page_objects_path: 'page_objects',
+  page_objects_path: ['page_objects', 'page_objects/florence', 'page_objects/web'],
   live_output: false,
   disable_colors: false,
   request_timeout_options: 20000,
