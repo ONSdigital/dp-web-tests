@@ -17,6 +17,10 @@ module.exports = {
         metadataFile: {
             selector: "//*[contains(@class, 'js-show-hide__content') and contains(@aria-hidden, false)]/descendant::a[contains(text(), 'Text')]",
             locateStrategy: 'xpath'
+        },
+        releaseDate: {
+            selector: "//dt[contains(@class, 'meta__term') and contains(text(), 'Release date')]/following-sibling::dd",
+            locateStrategy: 'xpath'
         }
     },
     commands: [{

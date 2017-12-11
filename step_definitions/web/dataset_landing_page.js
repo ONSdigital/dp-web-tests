@@ -34,4 +34,13 @@ defineSupportCode(({Given, Then, When}) => {
             .assert.attributeEquals('@metadataFile', 'href', datasetLandingPage.url() + '/metadata.txt');
     });
 
+
+    /*
+    Release date is formatted correctly
+    */
+    Then(/^I can see the release date is formatted/, () => {
+        return datasetLandingPage
+            .expect.element('@releaseDate').text.to.equal('14 December 2017');
+    });
+
 });

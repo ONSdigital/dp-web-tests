@@ -15,3 +15,9 @@ Scenario: Download a metadata file
     Given I go to a dataset landing page
     When I click the 'other download options' call-to-action
     Then I can see the metadata file download
+
+@web @datasets @happy_path @smoke
+Scenario: Release date is formatted correctly
+
+    Given I go to a dataset landing page
+    Then I can see the release date is formatted
