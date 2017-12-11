@@ -43,4 +43,28 @@ defineSupportCode(({Given, Then, When}) => {
             .expect.element('@releaseDate').text.to.equal('14 December 2017');
     });
 
+    /*
+    View the dataset's metadata
+    */
+    let lastLinksHref;
+    Then(/^I can see the a table of contents for all metadata/, () => {
+        return datasetLandingPage
+            .expect.element('@tableOfContentsHeading').to.be.visible;
+    });
+    
+    When(/^I click a link for a metadata heading/, () => {
+        datasetLandingPage.getAttribute('@lastTableOfContentsLink', 'href', linkHref => {
+            lastLinksHref = (linkHref.value).substr(linkHref.value.lastIndexOf('#'));
+        });
+        return datasetLandingPage
+            .click('@lastTableOfContentsLink');
+    });
+    
+    Then(/^I am scrolled to that metadata section/, () => {
+        console.log(lastLinksHref);
+        return datasetLandingPage
+            .expect.element(lastLinksHref).to.be.visible.before(1000);
+    });
+
+
 });

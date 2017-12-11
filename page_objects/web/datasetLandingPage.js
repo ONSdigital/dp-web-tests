@@ -21,6 +21,14 @@ module.exports = {
         releaseDate: {
             selector: "//dt[contains(@class, 'meta__term') and contains(text(), 'Release date')]/following-sibling::dd",
             locateStrategy: 'xpath'
+        },
+        tableOfContentsHeading: {
+            selector: ".table-of-contents__title",
+            locateStrategy: 'css selector'
+        },
+        lastTableOfContentsLink: {
+            selector: ".table-of-contents__item:last-of-type a",
+            locateStrategy: 'css selector'
         }
     },
     commands: [{
