@@ -2,10 +2,10 @@ var {client} = require('nightwatch-cucumber');
 var {defineSupportCode} = require('cucumber');
 
 var datasetEditionsPage = client.page.datasetEditionsPage();
-var datasetPage = client.page.datasetPage();
+var datasetLandingPage = client.page.datasetLandingPage();
 
 defineSupportCode(({Given, Then, When}) => {
-    let editionTitle = 
+    let editionTitle;
 
     /*
     Reused across scenarios
@@ -25,7 +25,7 @@ defineSupportCode(({Given, Then, When}) => {
     });
 
     Then(/^I can see that I've navigated to that edition's page/, () => {
-        return datasetPage
+        return datasetLandingPage
             .waitForLoad()
             .assert.urlContains(datasetEditionsPage.url() + "/editions/" + editionTitle);
     });
