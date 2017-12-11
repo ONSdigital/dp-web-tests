@@ -9,6 +9,14 @@ module.exports = {
         filterButton: {
             selector: "//*[contains(@class, 'btn') and contains(@value, 'Filter and download')]",
             locateStrategy: 'xpath'
+        },
+        downloadOptionsButton: {
+            selector: "//button[contains(@class, 'js-show-hide__button')]/descendant-or-self::*[contains(text(), 'Other download options')]",
+            locateStrategy: 'xpath'
+        },
+        metadataFile: {
+            selector: "//*[contains(@class, 'js-show-hide__content') and contains(@aria-hidden, false)]/descendant::a[contains(text(), 'Text')]",
+            locateStrategy: 'xpath'
         }
     },
     commands: [{
