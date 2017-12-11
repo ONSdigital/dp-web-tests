@@ -13,8 +13,8 @@ module.exports = {
             locateStrategy: 'css selector'
         },
         feedbackConfirmation: {
-            selector: '//*[contains(@class, "improve-this-page__prompt") and contains(text(), "Thanks for your feedback")]',
-            locateStrategy: 'xpath'
+            selector: '#feedback-form-confirmation',
+            locateStrategy: 'css selector'
         },
         feedbackForm: {
             selector: '#feedback-form-container',
