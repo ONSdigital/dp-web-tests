@@ -40,7 +40,7 @@ run:
 
 ### Preview Tests
 
-For preview to work you will need to provide an environt variable to a valid instance id for the CPI
+For preview to work you will need to provide an environment variable to a valid instance id for the CPI
 dataset. For example if you have imported the CPI dataset and the instance_id was "1234"
 
 you should run:
