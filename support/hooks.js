@@ -1,7 +1,6 @@
 const {client} = require('nightwatch-cucumber');
 const {defineSupportCode} = require('cucumber');
 var MongoClient = require('mongodb').MongoClient;
-var sleep = require('sleep');
 
 var mongoURL = process.env.MONGODB_URL;
 var instance_id = process.env.INSTANCE_ID;
