@@ -29,11 +29,44 @@ module.exports = {
         lastTableOfContentsLink: {
             selector: ".table-of-contents__item:last-of-type a",
             locateStrategy: 'css selector'
+        },
+        dimensionHeading: {
+            selector: "//h3[contains(text(), 'Goods and Services')]",
+            locateStrategy: 'xpath'
+        },
+        dimensionOptsList: {
+            selector: "#id-dimensions .margin-bottom--3:first-of-type ul.dimension-values li",
+            locateStrategy: 'css selector'
+        },
+        additionalDimensionOpts: {
+            selector: ".list-size",
+            locateStrategy: 'css selector'
+        },
+        prevVersionsHeading: {
+            selector: "#id-previous > h2",
+            locateStrategy: 'css selector'
+        },
+        prevVersionsLink: {
+            selector: "#id-previous p a",
+            locateStrategy: 'css selector'
         }
     },
     commands: [{
         waitForLoad: function() {
             return this.waitForElementVisible('@filterButton', 5000);
+        },
+        numberOfVisibleDimOpts: function(done) {
+            return this.api.elements(this.elements.dimensionOptsList.locateStrategy, this.elements.dimensionOptsList.selector, result => {
+                done(result.value.length);
+            });
+        },
+        numberOfAdditionalDimOpts: function(done) {
+            return this.getText(this.elements.additionalDimensionOpts.locateStrategy, this.elements.additionalDimensionOpts.selector, element => {
+              var numRegex = /\d+/g,
+                  string = element.value,
+                  getNum = string.match(numRegex);
+              done(getNum);
+          });
         }
     }]
 }

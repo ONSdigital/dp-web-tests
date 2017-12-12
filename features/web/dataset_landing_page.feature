@@ -30,10 +30,13 @@ Scenario: View the dataset's metadata
     When I click a link for a metadata heading
     Then I am scrolled to that metadata section
 
-# @web @datasets @happy_path @smoke
-# Scenario: Dimensions with more than 50 values are shortened
+@web @datasets @happy_path @smoke
+Scenario: Dimensions with more than 50 values are shortened to show 10
 
-#     Given I go to a dataset landing page
+     Given I go to a dataset landing page
+     Then I can see the 'Goods and Services' dimension
+     Then I can see '10' dimension options are visible
+     Then I am shown there are '127' more options
 
 # @web @datasets @happy_path @smoke
 # Scenario: Dimensions with 10 - 50 values show 10 and allow me to see the rest if I choose
@@ -44,3 +47,12 @@ Scenario: View the dataset's metadata
 # Scenario: Show all values for dimensions with less than 10 values
 
 #     Given I go to a dataset landing page
+
+
+@web @datasets @happy_path @smoke
+Scenario: Access previous versions
+
+     Given I go to a dataset landing page
+     Then I can see the 'Previous Versions' are available
+     When I click the link to view previous versions
+     Then I am navigated to the 'Previous versions' page
