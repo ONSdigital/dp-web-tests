@@ -17,7 +17,7 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         secondFilterLink: {
-            selector: '//*[contains(@class, "filter-overview")]//descendant::a[2]',
+            selector: '//*[contains(@class, "filter-overview")]//descendant::a[3]',
             locateStrategy: 'xpath'
         },
         clearAllLink: {
@@ -30,6 +30,10 @@ module.exports = {
         },
         hierarchyNumberAdded: {
             selector: '#number-added-goods-and-services',
+            locateStrategy: 'css selector'
+        },
+        previewDownloadButton: {
+            selector: '#preview-download',
             locateStrategy: 'css selector'
         }
     },

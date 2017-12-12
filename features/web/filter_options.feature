@@ -10,7 +10,7 @@ Scenario: Access multiple filters from the filter options page
     Then I can see the first filter page
     Then I can navigate back to the filter options
     When I click the second dimension
-    Then I can see the first filter page
+    Then I can see the second filter page
 
 @web @datasets @happy_path
 Scenario: Clear filters that have been applied

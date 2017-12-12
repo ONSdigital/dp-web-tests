@@ -37,3 +37,12 @@ To run tests in firefox, ensure you have the latest version downloaded (55+), an
 run:
 
 `./run.sh -f`
+
+### Preview Tests
+
+For preview to work you will need to provide an environt variable to a valid instance id for the CPI
+dataset. For example if you have imported the CPI dataset and the instance_id was "1234"
+
+you should run:
+
+`export INSTANCE_ID=1234`
