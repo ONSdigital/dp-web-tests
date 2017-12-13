@@ -89,4 +89,9 @@ defineSupportCode(({Given, Then, When}) => {
             .click('@clearAllLink');
     });
 
+    Then(/^I click to preview and download/, () => {
+        return filterOptionsPage
+            .click('@previewDownloadButton');
+    })
+
 })

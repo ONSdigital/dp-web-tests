@@ -11,9 +11,9 @@ module.exports = {
             locateStrategy: 'css selector'
         },
         saveButton: {
-            selector: 'form *[name="save-and-return"]',
+            selector: '#save-and-return-container input[name="save-and-return"]',
             locateStrategy: 'css selector'
-        }
+        },
     },
     commands: [{
         waitForLoad: function() {
