@@ -30,4 +30,9 @@ defineSupportCode(({Given, Then, When}) => {
             .assert.urlContains(datasetEditionsPage.url() + "/editions/" + editionTitle);
     });
 
+    Then(/^I am navigated to the dataset landing page$/, () => {
+        return datasetPage
+            .waitForLoad();
+    })
+
 });
