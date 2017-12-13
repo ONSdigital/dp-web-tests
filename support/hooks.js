@@ -24,15 +24,15 @@ var databases = [
 ]
 
 function setup() {
-    console.log("setting up tests")
+    setTimeout(backupCurrent, 1000)
 
-    setTimeout(backupCurrent, 5000)
-
-    setTimeout(dropDBs, 5000);
+    setTimeout(dropDBs, 1000);
     
-    setTimeout(restoreTestData, 5000);
+    setTimeout(restoreTestData, 1000);
 
-    console.log("setup complete")
+    if (instance_id.length > 0) {
+        setTimeout(useInstanceID, 3000);
+    }
 }
 
 function teardown() {
@@ -164,8 +164,14 @@ function restoreTestData() {
 
 defineSupportCode(({BeforeAll, AfterAll}) => {
     BeforeAll(() => {
-        // TODO only run this datasets setup when we have the correct tags that need that data 
-        setup();
+        // TODO only run this datasets setup when we have the correct tags that need that data
+
+        return new Promise((resolve) => {
+            setup();
+            console.log("setting up data");
+            setTimeout(resolve, 6000);
+        });
+
     })
     AfterAll( function() {
         // TODO only run this datasets setup when we have the correct tags that need that data 
@@ -188,10 +194,6 @@ defineSupportCode(({Before, After}) => {
                     .setValue('@emailInput', 'florence@magicroundabout.ons.gov.uk')
                     .setValue('@passwordInput', 'one two three four')
                     .attemptLogin()
-
-                    if (instance_id.length > 0) {
-                        useInstanceID();
-                    }
 
                 return client.page.globalNav().waitForLoad()
             }
