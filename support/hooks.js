@@ -124,6 +124,26 @@ function useInstanceID() {
         }
     });
 
+    MongoClient.connect(mongoURL + "/filters", function(err, db) {
+        if (err) {
+            console.log('Sorry unable to connect to MongoDB Error:', err);
+        } else {
+     
+            var collection = db.collection('filters');
+     
+            collection.updateOne({
+                "instance_id": "28045b79-b91f-4b40-b9cd-b859973fca8d"
+            }, {
+                $set: {
+                    "instance_id": instance_id
+                }
+            }, function(err, results) {
+            });
+     
+            db.close();
+        }
+    });
+
     MongoClient.connect(mongoURL + "/datasets", function(err, db) {
         if (err) {
             console.log('Sorry unable to connect to MongoDB Error:', err);
