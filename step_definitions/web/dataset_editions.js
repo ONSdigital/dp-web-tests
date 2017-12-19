@@ -31,7 +31,7 @@ defineSupportCode(({Given, Then, When}) => {
     });
 
     Then(/^I am navigated to the dataset landing page$/, () => {
-        return datasetPage
+        return datasetLandingPage
             .waitForLoad();
     })
 

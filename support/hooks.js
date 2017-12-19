@@ -27,7 +27,7 @@ function setup() {
     setTimeout(backupCurrent, 1000)
 
     setTimeout(dropDBs, 1000);
-    
+
     setTimeout(restoreTestData, 1000);
 
     if (instance_id.length > 0) {
@@ -108,9 +108,9 @@ function useInstanceID() {
         if (err) {
             console.log('Sorry unable to connect to MongoDB Error:', err);
         } else {
-     
+
             var collection = db.collection('instances');
-     
+
             collection.updateOne({
                 "id": "28045b79-b91f-4b40-b9cd-b859973fca8d"
             }, {
@@ -119,7 +119,7 @@ function useInstanceID() {
                 }
             }, function(err, results) {
             });
-     
+
             db.close();
         }
     });
@@ -128,9 +128,9 @@ function useInstanceID() {
         if (err) {
             console.log('Sorry unable to connect to MongoDB Error:', err);
         } else {
-     
+
             var collection = db.collection('filters');
-     
+
             collection.updateOne({
                 "instance_id": "28045b79-b91f-4b40-b9cd-b859973fca8d"
             }, {
@@ -139,7 +139,7 @@ function useInstanceID() {
                 }
             }, function(err, results) {
             });
-     
+
             db.close();
         }
     });
@@ -148,9 +148,9 @@ function useInstanceID() {
         if (err) {
             console.log('Sorry unable to connect to MongoDB Error:', err);
         } else {
-     
+
             var collection = db.collection('filterOutputs');
-     
+
             collection.updateMany({
                 "instance_id": "28045b79-b91f-4b40-b9cd-b859973fca8d"
             }, {
@@ -159,7 +159,7 @@ function useInstanceID() {
                 }
             }, function(err, results) {
             });
-     
+
             db.close();
         }
     });
@@ -168,9 +168,9 @@ function useInstanceID() {
         if (err) {
             console.log('Sorry unable to connect to MongoDB Error:', err);
         } else {
-     
+
             var collection = db.collection('dimension.options');
-     
+
             collection.updateMany({
                 "instance_id": "28045b79-b91f-4b40-b9cd-b859973fca8d"
             }, {
@@ -179,25 +179,25 @@ function useInstanceID() {
                 }
             }, function(err, results) {
             });
-     
+
             db.close();
         }
     });
-      
+
 }
 
 function restoreTestData() {
     console.log("restoring current mongo state");
-    
+
         const spawn = require( 'child_process' ).spawn,
         exec = spawn( 'mongorestore', [ '--uri=' + mongoURL, '--dir=' + "testdump" ] );
-    
+
         exec.stdout.on( 'data', data => {
         });
-    
+
         exec.stderr.on( 'data', data => {
         });
-    
+
         exec.on( 'close', code => {
         });
 }
@@ -214,7 +214,7 @@ defineSupportCode(({BeforeAll, AfterAll}) => {
 
     })
     AfterAll( function() {
-        // TODO only run this datasets setup when we have the correct tags that need that data 
+        // TODO only run this datasets setup when we have the correct tags that need that data
         teardown();
     })
 })
