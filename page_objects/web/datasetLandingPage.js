@@ -150,7 +150,6 @@ module.exports = {
             selector: ".tiles__item:nth-of-type(4n) h3 div",
             locateStrategy: "css selector"
         }
-
     },
     commands: [{
         waitForLoad: function() {
