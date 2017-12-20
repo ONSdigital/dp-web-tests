@@ -149,6 +149,10 @@ module.exports = {
         nationalStatisticTitle: {
             selector: ".tiles__item:nth-of-type(4n) h3 div",
             locateStrategy: "css selector"
+        },
+        mainServiceLink: {
+            selector: "#main-service-link",
+            locateStrategy: "css selector"
         }
     },
     commands: [{

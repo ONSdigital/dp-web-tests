@@ -138,3 +138,10 @@ Scenario: I can confirm that the dataset is a national statistic
 
     Given I go to a dataset landing page
     Then I can see the national statistic information
+
+@web @datasets @happy_path @smoke
+Scenario: I can return to the normal site via feedback banner
+
+    Given I go to a dataset landing page
+    When I click the return to normal service link
+    Then I am navigated to the taxonomy landing page

@@ -291,5 +291,10 @@ defineSupportCode(({Given, Then, When}) => {
             .expect.element('@nationalStatisticTitle').to.be.visible;
     });
 
+    When(/^I click the return to normal service link/, () => {
+        return datasetLandingPage
+            .click('@mainServiceLink');
+    })
+
 
 });
