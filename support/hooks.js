@@ -112,7 +112,7 @@ function useInstanceID() {
             var collection = db.collection('instances');
 
             collection.updateOne({
-                "id": "28045b79-b91f-4b40-b9cd-b859973fca8d"
+                "is_frontend_instance": true
             }, {
                 $set: {
                     "id": instance_id
@@ -132,7 +132,7 @@ function useInstanceID() {
             var collection = db.collection('filters');
 
             collection.updateOne({
-                "instance_id": "28045b79-b91f-4b40-b9cd-b859973fca8d"
+                "is_frontend_instance": true
             }, {
                 $set: {
                     "instance_id": instance_id
@@ -152,7 +152,7 @@ function useInstanceID() {
             var collection = db.collection('filterOutputs');
 
             collection.updateMany({
-                "instance_id": "28045b79-b91f-4b40-b9cd-b859973fca8d"
+                "is_frontend_instance": true
             }, {
                 $set: {
                     "instance_id": instance_id
@@ -172,7 +172,7 @@ function useInstanceID() {
             var collection = db.collection('dimension.options');
 
             collection.updateMany({
-                "instance_id": "28045b79-b91f-4b40-b9cd-b859973fca8d"
+                "is_frontend_instance": true
             }, {
                 $set: {
                     "instance_id": instance_id
