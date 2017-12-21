@@ -24,7 +24,11 @@ module.exports = {
         datasetInstanceLink: {
             selector: "details[open] summary ~* a[href$='datasets/931a8a2a-0dc8-42b6-a884-7b6054ed3b68/instances/65b08a7d-85be-44e1-9743-df913217b782/metadata']",
             locateStrategy: "css selector"
-        }
+        },
+        datasetUploadLink: {
+            selector: "//a[contains(text(), 'Upload a dataset')]",
+            locateStrategy: 'xpath',
+        } 
     },
     commands: [{
         waitForLoad: function() {

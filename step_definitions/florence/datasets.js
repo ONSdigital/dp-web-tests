@@ -83,4 +83,10 @@ defineSupportCode(({Given, Then, When}) => {
         return instanceMetadataPage
             .waitForLoad();
     });
+
+    When(/^I select upload a dataset/, () => {
+        return datasetsPage
+            .click('@datasetUploadLink')
+            .api.pause(1000);
+    });
 });
