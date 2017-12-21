@@ -43,4 +43,29 @@ defineSupportCode(({Given, Then, When}) => {
             .click('@sendButton');
     });
 
+    When(/I click the send button/, () => {
+        return globalFeedback
+            .click('@sendButton');
+    })
+
+    Then(/^a "([^"]*)" field error is displayed/, (field) => {
+        switch (field) {
+            case "description":
+                return globalFeedback
+                    .waitForElementVisible('@descriptionInputWithError', 2000)
+                    .waitForElementVisible('@descriptionErrorMessage', 2000);
+            case "email":
+                return globalFeedback
+                    .waitForElementVisible('@emailInputWithError', 2000)
+                    .waitForElementVisible('@emailErrorMessage', 2000);
+        }
+    })
+
+    Then(/I enter a valid description but invalid email address/, () => {
+        return globalFeedback
+            .setValue('@descriptionInput', 'This is acceptance test feedback')
+            .setValue('@nameInput', 'Acceptance Test')
+            .setValue('@emailInput', 'invalid email address');
+    })
+
 });

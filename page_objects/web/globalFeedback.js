@@ -24,6 +24,22 @@ module.exports = {
             selector: '#description-field',
             locateStrategy: 'css selector'
         },
+        descriptionInputWithError: {
+            selector: '#description-field.form-control__error',
+            locateStrategy: 'css selector'
+        },
+        emailErrorMessage: {
+            selector: '#email-field-label span[class="form-error"]',
+            locateStrategy: 'css selector'
+        },
+        emailInputWithError: {
+            selector: '#email-field.form-control__error',
+            locateStrategy: 'css selector'
+        },
+        descriptionErrorMessage: {
+            selector: '#description-field-label span[class="form-error"]',
+            locateStrategy: 'css selector'
+        },
         nameInput: {
             selector: '#name-field',
             locateStrategy: 'css selector'
