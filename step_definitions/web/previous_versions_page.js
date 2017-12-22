@@ -73,5 +73,18 @@ defineSupportCode(({Given, Then, When}) => {
             .assert.attributeEquals('@xlsFile', 'href', process.env.ROUTER_URL + '/download.xls');
     });
 
+    /*
+    Start a filter journey for previous version
+    */
+    When(/^I click the filter and download button/, () => {
+        return previousVersionsPage
+            .click('@filterButton')
+    });
+
+    Then(/^I see the filter options page/, () => {
+        return previousVersionsPage
+            .waitForElementVisible('h1', 2000)
+            .expect.element('h1').text.to.equal('Filter options');
+    });
 
 });

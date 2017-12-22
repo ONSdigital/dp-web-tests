@@ -43,3 +43,11 @@ Scenario: Download a version in available formats
     Then I can see the csv file to download
     Then I can see the xls file to download
 
+
+@web @datasets @happy_path @smoke
+Scenario: Start a filter journey for the previous version
+
+    Given I go to the previous versions page
+    When I click the filter and download button
+    Then I see the filter options page
+

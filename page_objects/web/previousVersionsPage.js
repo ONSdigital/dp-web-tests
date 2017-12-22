@@ -36,6 +36,10 @@ module.exports = {
         xlsFile: {
             selector: "//*[contains(@class, 'table-preview')]/descendant::a[contains(text(), 'xls')]",
             locateStrategy: 'xpath'
+        },
+        filterButton: {
+            selector: ".table-preview tr:last-child td:last-child .btn",
+            locateStrategy: 'css selector'
         }
     },
     commands: [{
