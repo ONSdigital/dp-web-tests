@@ -111,7 +111,7 @@ function useInstanceID() {
 
             var collection = db.collection('instances');
 
-            collection.updateOne({
+            collection.updateMany({
                 "is_frontend_instance": true
             }, {
                 $set: {
