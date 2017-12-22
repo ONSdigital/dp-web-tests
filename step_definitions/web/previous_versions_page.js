@@ -49,7 +49,7 @@ defineSupportCode(({Given, Then, When}) => {
     */
     Then(/^I can see the revision date is formatted/, () => {
         return previousVersionsPage
-            .expect.element('@revisionDate').text.to.equal('25 December 2017');
+            .expect.element('@revisionDate').text.to.equal('14 December 2017');
     });
 
     /*

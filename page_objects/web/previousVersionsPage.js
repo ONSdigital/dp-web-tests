@@ -38,7 +38,7 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         filterButton: {
-            selector: ".table-preview tr:last-child td:last-child .btn",
+            selector: ".table-preview tr:last-child td:last-child form .btn",
             locateStrategy: 'css selector'
         }
     },
