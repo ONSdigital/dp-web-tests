@@ -10,7 +10,7 @@ Scenario: Access the 'edit metadata' screen for a dataset
     Then I can see a dataset's available actions
     When I click the 'edit metadata' link
     Then I see the dataset metadata page
-
+    And I can see the correct metadata on the dataset metadata page
 @florence @datasets @happy_path @smoke
 Scenario: Access the 'edit metadata' screen for a version
 

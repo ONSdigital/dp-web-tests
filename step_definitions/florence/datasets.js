@@ -42,6 +42,26 @@ defineSupportCode(({Given, Then, When}) => {
             .waitForLoad();
     });
 
+    Then(/^I can see the correct metadata on the dataset metadata page/, () => {
+        return datasetMetadataPage.
+            waitForElementVisible('@datasetID', 1000)
+            .getValue('@title', function(result) {
+                return datasetMetadataPage.assert.equal(result.value, 'Acceptance test');
+            })
+            .getValue('@description', function(result) {
+                return datasetMetadataPage.assert.equal(result.value, 'This is the acceptance test description.');
+            })
+            .getValue('@contactName', function(result) {
+                return datasetMetadataPage.assert.equal(result.value, 'James Tucker');
+            })
+            .getValue('@contactEmail', function(result) {
+                return datasetMetadataPage.assert.equal(result.value, 'cpi@ons.gsi.gov.uk');
+            })
+            .getValue('@contactPhone', function(result) {
+                return datasetMetadataPage.assert.equal(result.value, '+44 (0)1633 456900');
+            });
+    })
+
 
     /*
     Access the 'edit metadata' screen for a version
