@@ -37,6 +37,23 @@ defineSupportCode(({Given, Then, When}) => {
             .waitForLoad();
     });
 
+    Then(/^I can see I have '([^"]*)' filter\(s\) applied/, count => {
+        // if (count == 0) {
+        //     return filterOptionsPage
+        //         .expect.element('@editedFilterLink').to.not.be.present;
+        // }
+
+        return filterOptionsPage
+            .numberOfEditedFilters(filtersCount => {
+                return filterOptionsPage.assert.equal(filtersCount, count);
+            });
+    });
+
+    When(/^I click to preview and download/, () => {
+        return filterOptionsPage
+            .click('@previewDownloadButton');
+    })
+
     /*
     Access multiple filters from the filter options page
     */
@@ -57,18 +74,7 @@ defineSupportCode(({Given, Then, When}) => {
     /*
     Clear filters that have been applied
     */
-    Then(/^I can see I have '([^"]*)' filter\(s\) applied/, count => {
-        // if (count == 0) {
-        //     return filterOptionsPage
-        //         .expect.element('@editedFilterLink').to.not.be.present;
-        // }
 
-        return filterOptionsPage
-            .numberOfEditedFilters(filtersCount => {
-                return filterOptionsPage.assert.equal(filtersCount, count);
-            });
-    });
-    
     Then(/^I check an option/, () => {
         return filterPage
             .click('@uncheckedCheckbox');
@@ -89,9 +95,14 @@ defineSupportCode(({Given, Then, When}) => {
             .click('@clearAllLink');
     });
 
-    Then(/^I click to preview and download/, () => {
+    /*
+    Shown error when no dimensions have been selected
+    */
+
+    Then(/^I am shown an error to add filters/, () => {
         return filterOptionsPage
-            .click('@previewDownloadButton');
-    })
+            .expect.element('@errorMessage').to.be.visible;
+    });
+    
 
 })

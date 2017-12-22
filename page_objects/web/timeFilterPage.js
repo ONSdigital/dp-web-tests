@@ -55,7 +55,12 @@ module.exports = {
         listDateOptionCheckbox: {
             selector: '.multiple-choice__content input[type="checkbox"]',
             locateStrategy: 'css selector'
-        }
+        },
+        singleMonthError: {
+            selector: '#single-error-message',
+            locateStrategy: 'css selector'
+        },
+
     },
     commands: [{
         waitForLoad: function() {

@@ -165,4 +165,33 @@ defineSupportCode(({Given, Then, When}) => {
         return timeFilterPage
             .allListDateOptionsAreChecked();
     });
+
+    /*
+    Error is displayed for invalid single time selection
+    */
+
+    Then(/^I see an error to '([^"]*)'/, (message) => {
+        return timeFilterPage
+            .waitForElementVisible('@singleMonthError', 1000)
+            .expect.element('@singleMonthError').text.to.equal(message);
+    })
+
+    When(/^I only select a 'month'/, () => {
+        return timeFilterPage
+            .click('@singleMonthSelect')
+            .waitForElementVisible('@singleMonthSelect', 1000)
+            .click(timeFilterPage.elements.singleMonthSelect.selector + ' option[value="June"]')
+
+    })
+
+    When(/^I only select a 'year'/, () => {
+        return timeFilterPage
+            .click('@singleMonthSelect')
+            .waitForElementVisible('@singleMonthSelect', 1000)
+            .click(timeFilterPage.elements.singleMonthSelect.selector + ' option[value="Select"]')
+            .click('@singleYearSelect')
+            .waitForElementVisible('@singleYearSelect', 1000)
+            .click(timeFilterPage.elements.singleYearSelect.selector + ' option[value="1999"]')
+    })
+
 })
