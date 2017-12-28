@@ -5,8 +5,8 @@ module.exports = {
     },
     elements: {
         heading: {
-            selector: "//h1[contains(text(), 'Preview of filtered dataset')]",
-            locateStrategy: 'xpath'
+            selector: "h1 strong",
+            locateStrategy: 'css selector'
         },
         excelDownload: {
             selector: "#excel-download",
@@ -14,6 +14,10 @@ module.exports = {
         },
         csvDownload: {
             selector: "#csv-download",
+            locateStrategy: 'css selector',
+        },
+        txtDownload: {
+            selector: "#txt-download",
             locateStrategy: 'css selector',
         },
         previewRow: {
@@ -27,11 +31,15 @@ module.exports = {
         datasetPageLink: {
             selector: "#dataset-page-link",
             locateStrategy: 'css selector',
+        },
+        otherDownloadOptions: {
+            selector: "button.js-show-hide__button",
+            locateStrategy: 'css selector',
         }
     },
     commands: [{
         waitForLoad: function() {
-            return this.waitForElementVisible('@heading', 5000);
+            return this.expect.element('@heading').text.to.equal('Filtered dataset');;
         },
         numberOfTableRows: function(done) {
             return this.api.elements(this.elements.previewRow.locateStrategy, this.elements.previewRow.selector, result => {
