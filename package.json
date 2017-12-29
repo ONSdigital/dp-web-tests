@@ -4,16 +4,16 @@
   "description": "Automated tests for dp websites",
   "main": "index.js",
   "scripts": {
-    "start:chrome": "nightwatch --env chrome",
-    "start:chrome:florence": "nightwatch --tag florence --env chrome",
-    "start:chrome:web": "nightwatch --tag web --env chrome",
-    "start:firefox": "nightwatch --env firefox",
-    "start:firefox:web": "nightwatch --tag web --env firefox",
-    "start:safari": "nightwatch --env safari",
-    "start:safari:web": "nightwatch --tag web --env safari",
-    "start:parallel-single-browser": "nightwatch --tag cmd --env chrome",
-    "start:parallel-multiple-browser": "nightwatch --tag cmd --env chrome,firefox",
-    "start:parallel-all-browser": "nightwatch --tag cmd --env chrome,firefox,safari"
+    "start:chrome": "nightwatch --env chrome; node create-html-report.js",
+    "start:chrome:florence": "nightwatch --tag florence --env chrome; node create-html-report.js",
+    "start:chrome:web": "nightwatch --tag web --env chrome; node create-html-report.js",
+    "start:firefox": "nightwatch --env firefox; node create-html-report.js",
+    "start:firefox:web": "nightwatch --tag web --env firefox; node create-html-report.js",
+    "start:safari": "nightwatch --env safari; node create-html-report.js",
+    "start:safari:web": "nightwatch --tag web --env safari; node create-html-report.js",
+    "start:parallel-single-browser": "nightwatch --tag web --env chrome; node create-html-report.js",
+    "start:parallel-multiple-browser": "nightwatch --tag web --env chrome,firefox; node create-html-report.js",
+    "start:parallel-all-browser": "nightwatch --tag web --env chrome,firefox,safari; node create-html-report.js"
   },
   "repository": {
     "type": "git",
