@@ -171,9 +171,16 @@ defineSupportCode(({Given, Then, When}) => {
     */
 
     Then(/^I see an error to '([^"]*)'/, (message) => {
-        return timeFilterPage
-            .waitForElementVisible('@singleMonthError', 1000)
-            .expect.element('@singleMonthError').text.to.equal(message);
+        if (message === "Select a month and year") {
+            return timeFilterPage
+                .waitForElementVisible('@singleMonthError', 1000)
+                .expect.element('@singleMonthError').text.to.equal(message);
+        }
+        if (message === "Select a range") {
+            return timeFilterPage
+                .waitForElementVisible('@rangeError', 1000)
+                .expect.element('@rangeError').text.to.equal(message);
+        }
     })
 
     When(/^I only select a 'month'/, () => {
@@ -192,6 +199,70 @@ defineSupportCode(({Given, Then, When}) => {
             .click('@singleYearSelect')
             .waitForElementVisible('@singleYearSelect', 1000)
             .click(timeFilterPage.elements.singleYearSelect.selector + ' option[value="1999"]')
+    })
+
+    When(/^I only select a 'start month'/, () => {
+        return timeFilterPage
+            .click('@rangeStartMonthSelect')
+            .waitForElementVisible('@rangeStartMonthSelect', 1000)
+            .click(timeFilterPage.elements.rangeStartMonthSelect.selector + ' option[value="January"]')
+            .click('@rangeStartYearSelect')
+            .waitForElementVisible('@rangeStartYearSelect', 1000)
+            .click(timeFilterPage.elements.rangeStartYearSelect.selector + ' option[value="Select"]')
+    })
+
+    When(/^I only select a 'start year'/, () => {
+        return timeFilterPage
+            .click('@rangeStartMonthSelect')
+            .waitForElementVisible('@rangeStartMonthSelect', 1000)
+            .click(timeFilterPage.elements.rangeStartMonthSelect.selector + ' option[value="Select"]')
+            .click('@rangeStartYearSelect')
+            .waitForElementVisible('@rangeStartYearSelect', 1000)
+            .click(timeFilterPage.elements.rangeStartYearSelect.selector + ' option[value="1999"]')
+    })
+
+    When(/^I select an 'end month' earlier than the 'start month'/, () => {
+        return timeFilterPage
+            .click('@rangeStartMonthSelect')
+            .waitForElementVisible('@rangeStartMonthSelect', 1000)
+            .click(timeFilterPage.elements.rangeStartMonthSelect.selector + ' option[value="June"]')
+            .click('@rangeStartYearSelect')
+            .waitForElementVisible('@rangeStartYearSelect', 1000)
+            .click(timeFilterPage.elements.rangeStartYearSelect.selector + ' option[value="2005"]')
+            .click('@rangeEndMonthSelect')
+            .waitForElementVisible('@rangeEndMonthSelect', 1000)
+            .click(timeFilterPage.elements.rangeEndMonthSelect.selector + ' option[value="January"]')
+            .click('@rangeEndYearSelect')
+            .waitForElementVisible('@rangeEndYearSelect', 1000)
+            .click(timeFilterPage.elements.rangeEndYearSelect.selector + ' option[value="2005"]');
+    })
+
+    When(/I select an unavailable range/, () => {
+        return timeFilterPage
+            .click('@rangeStartMonthSelect')
+            .waitForElementVisible('@rangeStartMonthSelect', 1000)
+            .click(timeFilterPage.elements.rangeStartMonthSelect.selector + ' option[value="December"]')
+            .click('@rangeStartYearSelect')
+            .waitForElementVisible('@rangeStartYearSelect', 1000)
+            .click(timeFilterPage.elements.rangeStartYearSelect.selector + ' option[value="2015"]')
+            .click('@rangeEndMonthSelect')
+            .waitForElementVisible('@rangeEndMonthSelect', 1000)
+            .click(timeFilterPage.elements.rangeEndMonthSelect.selector + ' option[value="December"]')
+            .click('@rangeEndYearSelect')
+            .waitForElementVisible('@rangeEndYearSelect', 1000)
+            .click(timeFilterPage.elements.rangeEndYearSelect.selector + ' option[value="2015"]')
+    });
+
+    Then(/^I see an error stating 'End date must be after the start date'/, () => {
+        return timeFilterPage
+                .waitForElementVisible('@dateRangeError', 1000)
+                .expect.element('@dateRangeError').text.to.equal('End date must be after the start date');
+    })
+
+    Then(/^I see an error stating 'Data available from February 1996 until June 2015'/, () => {
+        return timeFilterPage
+                .waitForElementVisible('@unavailableDateRangeError', 1000)
+                .expect.element('@unavailableDateRangeError').text.to.equal('Data available from February 1996 until June 2015');
     })
 
 })

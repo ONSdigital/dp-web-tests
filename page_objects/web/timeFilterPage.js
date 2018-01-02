@@ -60,7 +60,18 @@ module.exports = {
             selector: '#single-error-message',
             locateStrategy: 'css selector'
         },
-
+        rangeError: {
+            selector: '#range-error-message',
+            locateStrategy: 'css selector'
+        },
+        dateRangeError: {
+            selector: '#date-range-error-message',
+            locateStrategy: 'css selector'
+        },
+        unavailableDateRangeError: {
+            selector: '#date-range-error-message-data-available',
+            locateStrategy: 'css selector'
+        }
     },
     commands: [{
         waitForLoad: function() {
