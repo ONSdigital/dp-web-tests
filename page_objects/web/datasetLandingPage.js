@@ -19,8 +19,8 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         metadataFile: {
-            selector: "//*[contains(@class, 'js-show-hide__content') and contains(@aria-hidden, false)]/descendant::a[contains(text(), 'Text')]",
-            locateStrategy: 'xpath'
+            selector: "#Text-download",
+            locateStrategy: 'css selector'
         },
         releaseDate: {
             selector: "//dt[contains(@class, 'meta__term') and contains(text(), 'Release date')]/following-sibling::dd",

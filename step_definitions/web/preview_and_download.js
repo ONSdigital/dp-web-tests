@@ -13,7 +13,10 @@ defineSupportCode(({Given, Then, When}) => {
     Then(/^I can see the correct preview and download contents$/, () => {
         return previewDownloadPage
             .waitForElementVisible('@excelDownload', 5000)
+            .waitForElementVisible('@otherDownloadOptions', 5000)
+            .click('@otherDownloadOptions')
             .waitForElementVisible('@csvDownload', 5000)
+            .waitForElementVisible('@txtDownload', 5000)
             .numberOfTableRows(rowCount => {
                 return previewDownloadPage.assert.equal(rowCount, 2);
             });
