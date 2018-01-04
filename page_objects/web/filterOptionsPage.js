@@ -35,6 +35,10 @@ module.exports = {
         previewDownloadButton: {
             selector: '#preview-download',
             locateStrategy: 'css selector'
+        },
+        errorMessage: {
+            selector: '#options-error',
+            locateStrategy: 'css selector'
         }
     },
     commands: [{

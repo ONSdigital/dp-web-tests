@@ -26,4 +26,10 @@ Scenario: Clear filters that have been applied
     When I clear my applied filters
     Then I can see I have '0' filter(s) applied
 
-# TODO Scenario: Disable button to continue to preview and download screen
+@web @datasets @unhappy_path
+Scenario: Error displayed when no dimensions have been selected
+
+    Given I go to the filter options page
+    Then I can see I have '0' filter(s) applied
+    When I click to preview and download
+    Then I am shown an error to add filters

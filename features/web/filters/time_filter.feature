@@ -81,3 +81,39 @@ Scenario: Add all of the available times
     Then I am navigated to the filter options page
     Then I can see I have 'all' time filter(s) applied
     Then I clear the filters I applied
+
+@web @datasets @unhappy_path @smoke
+Scenario: Error is displayed for invalid single time selection
+
+    Given I go to the 'time' filter page
+    When I select the 'single time' option
+    Then I can see that the 'single time' option is checked
+    When I save my selection(s)
+    Then I see an error to 'Select month and year'
+    When I only select a 'month'
+    When I save my selection(s)
+    Then I see an error to 'Select month and year'
+    When I only select a 'year'
+    When I save my selection(s)
+    Then I see an error to 'Select month and year'
+
+@web @datasets @unhappy_path @smoke
+Scenario: Error is displayed for invalid time range selection
+
+    Given I go to the 'time' filter page
+    When I select the 'range' option
+    Then I can see that the 'range' option is checked
+    When I save my selection(s)
+    Then I see an error to 'Select a range'
+    When I only select a 'start month'
+    When I save my selection(s)
+    Then I see an error to 'Select a range'
+    When I only select a 'start year'
+    When I save my selection(s)
+    Then I see an error to 'Select a range'
+    When I select an 'end month' earlier than the 'start month'
+    When I save my selection(s)
+    Then I see an error stating 'End date must be after the start date'
+    When I select an unavailable range
+    When I save my selection(s)
+    Then I see an error stating 'Data available from February 1996 until June 2015'

@@ -56,6 +56,22 @@ module.exports = {
             selector: '.multiple-choice__content input[type="checkbox"]',
             locateStrategy: 'css selector'
         },
+        singleMonthError: {
+            selector: '#single-error-message',
+            locateStrategy: 'css selector'
+        },
+        rangeError: {
+            selector: '#range-error-message',
+            locateStrategy: 'css selector'
+        },
+        dateRangeError: {
+            selector: '#date-range-error-message',
+            locateStrategy: 'css selector'
+        },
+        unavailableDateRangeError: {
+            selector: '#date-range-error-message-data-available',
+            locateStrategy: 'css selector'
+        },
         visibleAddAllSaveReturn: {
             selector: '#add-all-save-and-return',
             locateStrategy: 'css selector'
