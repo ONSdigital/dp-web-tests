@@ -55,7 +55,15 @@ module.exports = {
         listDateOptionCheckbox: {
             selector: '.multiple-choice__content input[type="checkbox"]',
             locateStrategy: 'css selector'
-        }
+        },
+        visibleAddAllSaveReturn: {
+            selector: '#add-all-save-and-return',
+            locateStrategy: 'css selector'
+        },
+        hiddenAddAllSaveReturn: {
+            selector: '#add-all-save-and-return.js-hidden',
+            locateStrategy: 'css selector'
+        },
     },
     commands: [{
         waitForLoad: function() {
