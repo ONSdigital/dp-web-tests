@@ -265,4 +265,14 @@ defineSupportCode(({Given, Then, When}) => {
                 .expect.element('@unavailableDateRangeError').text.to.equal('Data available from February 1996 until June 2015');
     })
 
+    Then(/^I can see the save and return button is available at the top/, () => {
+        return timeFilterPage
+            .waitForElementVisible('@visibleAddAllSaveReturn', 1000)
+            .waitForElementNotPresent('@hiddenAddAllSaveReturn', 1000);
+    })
+
+    Then(/^I can see the save and return button is not available at the top/, () => {
+        return timeFilterPage
+            .waitForElementPresent('@hiddenAddAllSaveReturn', 1000);
+    })
 })

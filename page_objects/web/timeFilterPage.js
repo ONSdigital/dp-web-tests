@@ -71,7 +71,15 @@ module.exports = {
         unavailableDateRangeError: {
             selector: '#date-range-error-message-data-available',
             locateStrategy: 'css selector'
-        }
+        },
+        visibleAddAllSaveReturn: {
+            selector: '#add-all-save-and-return',
+            locateStrategy: 'css selector'
+        },
+        hiddenAddAllSaveReturn: {
+            selector: '#add-all-save-and-return.js-hidden',
+            locateStrategy: 'css selector'
+        },
     },
     commands: [{
         waitForLoad: function() {

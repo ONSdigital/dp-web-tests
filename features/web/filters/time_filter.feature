@@ -73,8 +73,10 @@ Scenario: Add all of the available times
     Given I go to the 'time' filter page
     When I select the 'list' option
     Then I can see that the 'list' option is checked
+    And I can see the save and return button is not available at the top
     When I click the 'add all' link
     Then I can see all available times have been selected
+    And I can see the save and return button is available at the top
     When I save my selection(s)
     Then I am navigated to the filter options page
     Then I can see I have 'all' time filter(s) applied
