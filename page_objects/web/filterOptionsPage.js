@@ -9,7 +9,7 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         editedFilterLink: {
-            selector: '//*[contains(@class, "filter-overview__filter") and not(contains(text(), "Nothing added"))]',
+            selector: '//a[contains(@class, "font-weight-700") and not(contains(@class, "btn--tertiary"))]',
             locateStrategy: 'xpath'
         },
         firstFilterLink: {

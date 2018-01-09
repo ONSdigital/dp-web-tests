@@ -19,7 +19,7 @@ defineSupportCode(({Given, Then, When}) => {
     
     When(/^I click the first dimension$/, () => {
         return filterOptionsPage.getText('@firstFilterLink', function(text) {
-            firstLinkTitle = text.value.replace(/^Add at least one\n/, '').replace(/^Filter\nby /, '');
+            firstLinkTitle = text.value.replace(/^Add\n/, '').replace(/^Filter\nby /, '');
             return filterOptionsPage
                 // .api.pause(10000)
                 .click('@firstFilterLink')
@@ -59,7 +59,7 @@ defineSupportCode(({Given, Then, When}) => {
     */
     When(/^I click the second dimension$/, () => {
         return filterOptionsPage.getText('@secondFilterLink', function(text) {
-            secondLinkTitle = text.value.replace(/^Add at least one\n/, '').replace(/^Filter\nby /, '');
+            secondLinkTitle = text.value.replace(/^Add\n/, '').replace(/^Filter\nby /, '');
             return filterOptionsPage
                 .click('@secondFilterLink')
         })
