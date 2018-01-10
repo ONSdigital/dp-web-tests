@@ -1,11 +1,12 @@
 const {client} = require('nightwatch-cucumber');
 const {defineSupportCode} = require('cucumber');
 var MongoClient = require('mongodb').MongoClient;
+var request = require("request-promise");
 
 var mongoURL = process.env.MONGODB_URL;
 var instance_id = process.env.INSTANCE_ID;
+var zebedeeURL = process.env.ZEBEDEE_URL + "/zebedee";
 var datasetCollection = mongoURL + "/datasets";
-
 var collections = [
     "contacts",
     "datasets",
@@ -39,6 +40,8 @@ function teardown() {
     console.log("tearing down test data");
 
     dropDBs();
+
+    deleteCollection();
 
     restoreCurrent();
 
@@ -202,10 +205,75 @@ function restoreTestData() {
         });
 }
 
+// Returns access token from Zebedee
+const requestAccessToken = login => request(
+    {
+        "method":"POST", 
+        "uri": process.env.FLORENCE_URL + "/zebedee/login",
+        "json": true,
+        "body": {
+            "email":"florence@magicroundabout.ons.gov.uk",
+            "password":"one two three four"
+        }
+    }
+)
+
+// Returns collection ID from Zebedee
+const createCollection = token => request(
+    {
+        "method":"POST", 
+        "uri": process.env.FLORENCE_URL + "/zebedee/collection",
+        "json": true,
+        "headers" : {
+            "X-Florence-Token":token
+        },
+        "body": {
+            "name":"Acceptance test collection",
+            "type":"scheduled",
+            "publishDate":"2025-01-26T09:30:00.000Z"
+        }
+    }
+)
+
+function deleteCollection(){
+    const getCollections = (token) => request(
+        {
+            "method":"GET", 
+            "uri": process.env.FLORENCE_URL + "/zebedee/collections",
+            "json": true,
+            "headers" : {
+                "X-Florence-Token":token
+            }
+        }
+    )
+    const deleteCollection = (collectionIds, token) => request(
+        {
+            "method":"DELETE", 
+            "uri": process.env.FLORENCE_URL + "/zebedee/collection/" + collectionIds,
+            "json": true,
+            "headers" : {
+                "X-Florence-Token":token
+            }
+        }
+    )
+    requestAccessToken().then((token) => {
+        console.log("Deleting collections");
+        return getCollections(token).then((collections) => {
+            for (var i = 0; i < collections.length; i++){
+                deleteCollection(collections[i].id, token).then((deleted) => {
+                    console.log(i + " collections deleted");
+                }).catch(error => {
+                    console.log("Unable to delete collection. Not empty!");
+                });
+            } 
+        });
+    });
+}
+
 defineSupportCode(({BeforeAll, AfterAll}) => {
     BeforeAll(() => {
         // TODO only run this datasets setup when we have the correct tags that need that data
-
+       
         return new Promise((resolve) => {
             setup();
             console.log("setting up data");
@@ -221,23 +289,41 @@ defineSupportCode(({BeforeAll, AfterAll}) => {
 
 defineSupportCode(({Before, After}) => {
     Before(test => {
-            const needsLoggingIn = (
-                test.pickle.tags.some(tag => tag.name === "@florence")
-                &&
-                !test.pickle.tags.some(tag => tag.name === "@login")
-            )
-            if (needsLoggingIn) {
-                console.log('Running Florence login before test');
-                client.url(client.page.loginPage().url)
-                    .page.loginPage()
-                    .waitForLoad()
-                    .setValue('@emailInput', 'florence@magicroundabout.ons.gov.uk')
-                    .setValue('@passwordInput', 'one two three four')
-                    .attemptLogin()
+        const usesCollection = (
+            test.pickle.tags.some(tag => tag.name === "@florence")
+            &&
+            test.pickle.tags.some(tag => tag.name === "@collection")
+        )
+        if (usesCollection) {
+            console.log('Logging into Zebedee to create a collection before test');
+            requestAccessToken().then((token) => {
+                console.log("Successfully logged in to Zebedee. Access token: " + token);
+                return createCollection(token).then((collection) => {
+                    console.log("Successfully created a collection. Collection ID: " + collection.id);
+                }); 
+            }).catch(error => {
+                console.log("Collection not created: " + error.message);
+            }); 
+        }
 
-                return client.page.globalNav().waitForLoad()
-            }
-            return client.url();
+        const needsLoggingIn = (
+            test.pickle.tags.some(tag => tag.name === "@florence")
+            &&
+            !test.pickle.tags.some(tag => tag.name === "@login")
+        )
+        if (needsLoggingIn) {
+            console.log('Running Florence login before test');
+            client.url(client.page.loginPage().url)
+                .page.loginPage()
+                .waitForLoad()
+                .setValue('@emailInput', 'florence@magicroundabout.ons.gov.uk')
+                .setValue('@passwordInput', 'one two three four')
+                .attemptLogin()
+
+            return client.page.globalNav().waitForLoad()
+        }
+        return client.url();
+            
     });
     After(() => {
         return client.end();
