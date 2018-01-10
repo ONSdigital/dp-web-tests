@@ -5,7 +5,6 @@ var request = require("request-promise");
 
 var mongoURL = process.env.MONGODB_URL;
 var instance_id = process.env.INSTANCE_ID;
-var zebedeeURL = process.env.ZEBEDEE_URL + "/zebedee";
 var datasetCollection = mongoURL + "/datasets";
 var collections = [
     "contacts",
@@ -206,7 +205,7 @@ function restoreTestData() {
 }
 
 // Returns access token from Zebedee
-const requestAccessToken = login => request(
+const requestAccessToken = () => request(
     {
         "method":"POST", 
         "uri": process.env.FLORENCE_URL + "/zebedee/login",
