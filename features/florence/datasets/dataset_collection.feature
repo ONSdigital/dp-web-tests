@@ -2,7 +2,7 @@ Feature: Add dataset to collection
 
 Users can add a dataset to a collection
 
-@florence @datasets @collection @happy_path @smoke
+@florence @datasets @create_collection @collection @happy_path @smoke
 Scenario: Add a dataset to a collection
 
     Given I go to the dataset 'Add to collection' page

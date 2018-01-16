@@ -291,7 +291,7 @@ defineSupportCode(({Before, After}) => {
         const usesCollection = (
             test.pickle.tags.some(tag => tag.name === "@florence")
             &&
-            test.pickle.tags.some(tag => tag.name === "@collection")
+            test.pickle.tags.some(tag => tag.name === "@create_collection")
         )
         if (usesCollection) {
             console.log('Logging into Zebedee to create a collection before test');
