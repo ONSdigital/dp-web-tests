@@ -9,15 +9,15 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         editedFilterLink: {
-            selector: '//*[contains(@class, "filter-overview__filter") and not(contains(text(), "Nothing added"))]',
+            selector: '//a[contains(@class, "filter-overview__link--edit")]',
             locateStrategy: 'xpath'
         },
         firstFilterLink: {
-            selector: '//*[contains(@class, "filter-overview")]//descendant::a[2]',
+            selector: '//*[contains(@class, "filter-overview")]//descendant::a[2]//descendant::span',
             locateStrategy: 'xpath'
         },
         secondFilterLink: {
-            selector: '//*[contains(@class, "filter-overview")]//descendant::a[3]',
+            selector: '//*[contains(@class, "filter-overview")]//descendant::a[3]//descendant::span',
             locateStrategy: 'xpath'
         },
         clearAllLink: {

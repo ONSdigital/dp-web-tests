@@ -12,7 +12,7 @@ defineSupportCode(({Given, Then, When}) => {
 
     Then(/^I can see the correct preview and download contents$/, () => {
         return previewDownloadPage
-            .waitForElementVisible('@excelDownload', 5000)
+            .waitForElementVisible('@excelDownload', 10000)
             .waitForElementVisible('@otherDownloadOptions', 5000)
             .click('@otherDownloadOptions')
             .waitForElementVisible('@csvDownload', 5000)
