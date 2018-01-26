@@ -24,6 +24,10 @@ if [[ $DATASET_API_URL == "" ]]; then
     export DATASET_API_URL=http://localhost:22000
 fi
 
+if [[ $DATASET_AUTH_TOKEN == "" ]]; then
+    export DATASET_AUTH_TOKEN=FD0108EA-825D-411C-9B1D-41EF7727F465
+fi
+
 cypher-shell < ./testdata/hierarchy.cypher
 
 case "$1" in

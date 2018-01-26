@@ -5,7 +5,7 @@ var request = require("request-promise");
 var waitUntil = require('wait-until');
 
 var mongoURL = process.env.MONGODB_URL;
-var datasetAuthToken = "FD0108EA-825D-411C-9B1D-41EF7727F465";
+var datasetAuthToken = process.env.DATASET_AUTH_TOKEN;
 var instance_id = "";
 var datasetCollection = mongoURL + "/datasets";
 var collections = [

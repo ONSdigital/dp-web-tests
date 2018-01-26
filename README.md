@@ -10,6 +10,7 @@ Automated tests for dp websites using nightwatch.js, with the cucumber framework
 | ROUTER_URL           | http://localhost:20000    | The URL of dp-frontend-router.
 | IMPORT_API_URL       | http://localhost:21800    | The URL of the import api.
 | DATASET_API_URL      | http://localhost:22000    | The URL of the dataset api.
+| DATASET_AUTH_TOKEN   | FD0108EA-825D-411C-9B1D-41EF7727F465 | The token to authenticate the dataset api with
 | MONGODB_URL          | mongodb://localhost:27017 | The MongoDB url.
 
 ### Installing components
