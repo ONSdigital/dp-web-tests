@@ -20,6 +20,8 @@ if [[ $INSTANCE_ID == "" ]]; then
     export INSTANCE_ID="28045b79-b91f-4b40-b9cd-b859973fca8d"
 fi
 
+cypher-shell < ./testdata/hierarchy.cypher
+
 case "$1" in
     -f)
         npm run start:firefox

@@ -4,8 +4,12 @@ Automated tests for dp websites using nightwatch.js, with the cucumber framework
 
 ### Configuration
 
-You must set the environment variable `ROUTER_URL` to point at your dp-frontend-router
-service, `MONGODB_URL` to point at your mongodb instance and `FLORENCE_URL` to point at florence.
+| Environment variable | Default                 | Description
+| -------------------- | ----------------------- | --------------------------------------
+| FLORENCE_URL         | http://localhost:8081   | The host and port to bind to.
+| ROUTER_URL           | http://localhost:20000  | The URL of dp-frontend-router.
+| IMPORT_API_URL       | http://localhost:21800  | The URL of the import api.
+| DATASET_API_URL      | http://localhost:22000  | The URL of the dataset api.
 
 ### Installing components
 
@@ -37,12 +41,3 @@ To run tests in firefox, ensure you have the latest version downloaded (55+), an
 run:
 
 `./run.sh -f`
-
-### Preview Tests
-
-For preview to work you will need to provide an environment variable to a valid instance id for the CPI
-dataset. For example if you have imported the CPI dataset and the instance_id was "1234"
-
-you should run:
-
-`export INSTANCE_ID=1234`

@@ -2,9 +2,11 @@ const {client} = require('nightwatch-cucumber');
 const {defineSupportCode} = require('cucumber');
 var MongoClient = require('mongodb').MongoClient;
 var request = require("request-promise");
+var waitUntil = require('wait-until');
 
 var mongoURL = process.env.MONGODB_URL;
-var instance_id = process.env.INSTANCE_ID;
+var datasetAuthToken = "FD0108EA-825D-411C-9B1D-41EF7727F465";
+var instance_id = "";
 var datasetCollection = mongoURL + "/datasets";
 var collections = [
     "contacts",
@@ -23,16 +25,90 @@ var databases = [
     "imports"
 ]
 
-function setup() {
-    setTimeout(backupCurrent, 1000)
-
-    setTimeout(dropDBs, 1000);
-
-    setTimeout(restoreTestData, 1000);
-
-    if (instance_id.length > 0) {
-        setTimeout(useInstanceID, 3000);
+// creates an import job
+const createImport = () => request(
+    {
+        "method":"POST", 
+        "uri": process.env.IMPORT_API_URL + "/jobs",
+        "json": true,
+        "body": {
+            "recipe":"b944be78-f56d-409b-9ebd-ab2b77ffe187"
+        }
     }
+)
+
+const addFile = (job_id) => request(
+    {
+        "method": "PUT",
+        "uri": process.env.IMPORT_API_URL + "/jobs/" + job_id + "/files",
+        "json": true,
+        "body": {
+            "alias_name": "COICOP",
+            "url": "https://s3-eu-west-1.amazonaws.com/dp-frontend-florence-file-uploads/2470609-2470609-EXAMPLE_V4-coicopcomb-inc-geo-code1csvcsv"
+        }
+    }
+)
+
+const submitJob = (job_id) => request(
+    {
+        "method": "PUT",
+        "uri": process.env.IMPORT_API_URL + "/jobs/" + job_id,
+        "json": true,
+        "body": {
+            "state": "submitted"
+        }
+    }
+)
+
+const getInstance = (instanceID) => request(
+    {
+        "method": "GET",
+        "uri": process.env.DATASET_API_URL + "/instances/" + instanceID,
+        "json": true,
+        "headers": {
+            "Internal-Token": datasetAuthToken
+        }
+    }
+).then((resp) => {
+    var state = resp.state;
+    console.log("got response from dataset api with state: " + state);
+    if (state === "completed") {
+        console.log("import completed. instance id: " + instanceID);
+        instance_id = instanceID;
+    } else {
+        console.log("import still being submitted: " + state);
+    }
+})
+
+function queueImport(resolve, reject) {
+    return createImport().then((response) => {
+        var jobID = response.id;
+        var instanceID = response.links.instances[0].id;
+        console.log("sucessfully created import job: " + jobID + " instance_id: " + instanceID);
+
+        return addFile(jobID).then(() => {
+            console.log("file added to import job");
+            return submitJob(jobID).then(() => {
+                console.log("job submitted");
+                waitUntil().interval(10000).times(10)
+                    .condition(function() {
+                        getInstance(instanceID);
+                        if (instance_id !== "") {
+                            return true
+                        }
+                        return false
+                    }).done(function(result) {
+                        if (result) {
+                            resolve();
+                        }
+                    })
+            })
+        })
+
+    }).catch(error => {
+        console.log("unable to create import: " + error.message);
+        reject("unable to create instance");
+    })
 }
 
 function teardown() {
@@ -273,12 +349,34 @@ defineSupportCode(({BeforeAll, AfterAll}) => {
     BeforeAll(() => {
         // TODO only run this datasets setup when we have the correct tags that need that data
        
-        return new Promise((resolve) => {
-            setup();
-            console.log("setting up data");
-            setTimeout(resolve, 6000);
-        });
+        return new Promise((res) => {
+            function startImport(res) {
+                new Promise((resolve, reject) => {
+                    queueImport(resolve, reject);
+                }).then((message) => {
+                    console.log(message);
+                    setTimeout(backupCurrent, 1000);
+        
+                    setTimeout(dropDBs, 1000);
+                
+                    setTimeout(restoreTestData, 1000);
+                
+                    if (instance_id.length > 0) {
+                        setTimeout(useInstanceID, 3000);
+                    }
 
+                    setTimeout(res, 6000);
+                }).catch((err) => {
+                    console.log(err);
+                    process.exit(1);
+                })
+            }
+        
+            startImport(res);
+        })
+
+        
+        
     })
     AfterAll( function() {
         // TODO only run this datasets setup when we have the correct tags that need that data
