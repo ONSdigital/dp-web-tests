@@ -77,6 +77,7 @@ const getInstance = (instanceID) => request(
         instance_id = instanceID;
     } else {
         console.log("import still being submitted: " + state);
+        console.log("polling dataset api until instance: " + instanceID + " is completed....")
     }
 })
 
@@ -89,8 +90,8 @@ function queueImport(resolve, reject) {
         return addFile(jobID).then(() => {
             console.log("file added to import job");
             return submitJob(jobID).then(() => {
-                console.log("job submitted");
-                waitUntil().interval(10000).times(10)
+                console.log("import job submitted");
+                waitUntil().interval(5000).times(10)
                     .condition(function() {
                         getInstance(instanceID);
                         if (instance_id !== "") {
