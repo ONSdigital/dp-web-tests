@@ -4,12 +4,13 @@ Automated tests for dp websites using nightwatch.js, with the cucumber framework
 
 ### Configuration
 
-| Environment variable | Default                 | Description
-| -------------------- | ----------------------- | --------------------------------------
-| FLORENCE_URL         | http://localhost:8081   | The host and port to bind to.
-| ROUTER_URL           | http://localhost:20000  | The URL of dp-frontend-router.
-| IMPORT_API_URL       | http://localhost:21800  | The URL of the import api.
-| DATASET_API_URL      | http://localhost:22000  | The URL of the dataset api.
+| Environment variable | Default                   | Description
+| -------------------- | --------------------------| --------------------------------------
+| FLORENCE_URL         | http://localhost:8081     | The host and port to bind to.
+| ROUTER_URL           | http://localhost:20000    | The URL of dp-frontend-router.
+| IMPORT_API_URL       | http://localhost:21800    | The URL of the import api.
+| DATASET_API_URL      | http://localhost:22000    | The URL of the dataset api.
+| MONGODB_URL          | mongodb://localhost:27017 | The MongoDB url.
 
 ### Installing components
 

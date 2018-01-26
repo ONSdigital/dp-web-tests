@@ -16,8 +16,12 @@ if [[ $FLORENCE_URL == "" ]]; then
     export FLORENCE_URL=http://localhost:8081
 fi
 
-if [[ $INSTANCE_ID == "" ]]; then
-    export INSTANCE_ID="28045b79-b91f-4b40-b9cd-b859973fca8d"
+if [[ $IMPORT_API_URL == "" ]]; then
+    export IMPORT_API_URL=http://localhost:21800
+fi
+
+if [[ $DATASET_API_URL == "" ]]; then
+    export DATASET_API_URL=http://localhost:22000
 fi
 
 cypher-shell < ./testdata/hierarchy.cypher
