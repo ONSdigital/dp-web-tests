@@ -91,7 +91,7 @@ function queueImport(resolve, reject) {
             console.log("file added to import job");
             return submitJob(jobID).then(() => {
                 console.log("import job submitted");
-                waitUntil().interval(5000).times(10)
+                waitUntil().interval(10000).times(30)
                     .condition(function() {
                         getInstance(instanceID);
                         if (instance_id !== "") {
