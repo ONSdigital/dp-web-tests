@@ -1,6 +1,6 @@
 Feature: Browse and add options from a hierarchy
 
-Users can browse through a hierarchy of data and apply filters to a dataset throught the journey
+Users can browse through a hierarchy of data and apply filters to a dataset through the journey
 
 @web @datasets @happy_path @hierarchy_filter
 Scenario: Add all of the top level options
