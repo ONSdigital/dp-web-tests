@@ -36,7 +36,7 @@ defineSupportCode(({Given, Then, When}) => {
     Then(/^I can see 'all top levels' hierarchy filter\(s\) applied/, () => {
         return filterOptionsPage
             .getText('@hierarchyNumberAdded', result => {
-                const count = result.value.substr(0, result.value.indexOf(' item'));
+                const count = result.value.substr(0, result.value.indexOf(' added'));
                 filterOptionsPage.assert.equal(count, numberOfTopLevelOptions, 'All filters are applied');
             });
     });
