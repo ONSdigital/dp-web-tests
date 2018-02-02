@@ -4,7 +4,7 @@ module.exports = {
     },
     elements: {
         heading: {
-            selector: "//h1[contains(text(), 'New data')]",
+            selector: "//h1[contains(text(), 'Metadata')]",
             locateStrategy: 'xpath'
         }
     },
