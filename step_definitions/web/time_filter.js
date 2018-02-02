@@ -67,7 +67,7 @@ defineSupportCode(({Given, Then, When}) => {
     Then(/^I can see I have '([^"]*)' time filter\(s\) applied/, filterCount => {
         return filterOptionsPage
             .getText('@timeFilterNumberAdded', result => {
-                const count = result.value.substr(0, result.value.indexOf(' item'));
+                const count = result.value.substr(0, result.value.indexOf(' added'));
 
                 if (filterCount === "all") {
                     filterOptionsPage.assert.equal(count, numberOfAvailableTimes, 'All filters are applied');
