@@ -4,7 +4,7 @@
   "description": "Automated tests for dp websites",
   "main": "index.js",
   "scripts": {
-    "start:chrome": "nightwatch --env chrome; node create-html-report.js",
+    "start:chrome": "nightwatch --env chrome",
     "start:chrome:florence": "nightwatch --tag florence --env chrome; node create-html-report.js",
     "start:chrome:web": "nightwatch --tag web --env chrome; node create-html-report.js",
     "start:firefox": "nightwatch --env firefox; node create-html-report.js",

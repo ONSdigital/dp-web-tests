@@ -39,7 +39,7 @@ module.exports = {
     },
     commands: [{
         waitForLoad: function() {
-            return this.expect.element('@heading').text.to.equal('Filtered dataset');;
+            return this.expect.element('@heading').text.to.equal('Filtered dataset');
         },
         numberOfTableRows: function(done) {
             return this.api.elements(this.elements.previewRow.locateStrategy, this.elements.previewRow.selector, result => {
