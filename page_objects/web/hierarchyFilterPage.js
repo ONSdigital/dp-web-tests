@@ -15,6 +15,22 @@ module.exports = {
         optionCheckbox: {
             selector: '#filter-form input[type="checkbox"]',
             locateStrategy: 'css selector'
+        },
+        searchInput: {
+            selector: '#search',
+            locateStrategy: 'css selector'
+        },
+        searchSubmit: {
+            selector: '#nav-search-submit',
+            locateStrategy: 'css selector'
+        },
+        searchResultsInfo: {
+            selector: '#search-results-info',
+            locateStrategy: 'css selector'
+        },
+        searchAdvice: {
+            selector: '.no-results-advice',
+            locateStrategy: 'css selector'
         }
     },
     commands: [{
