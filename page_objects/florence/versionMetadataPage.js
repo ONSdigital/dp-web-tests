@@ -8,7 +8,7 @@ module.exports = {
     },
     elements: {
         heading: {
-            selector: "//h1[contains(text(), 'New data')]",
+            selector: "//h1[contains(text(), 'Metadata')]",
             locateStrategy: 'xpath'
         },
         releaseDateInput: {
@@ -16,8 +16,28 @@ module.exports = {
             locateStrategy: 'css selector'
         },
         saveButton: {
-            selector: "form button:not([type='button'])",
+            selector: "#save-and-return",
             locateStrategy: 'css selector'
+        },
+        geographyInput: {
+            selector: "#geography",
+            locateStrategy: 'css selector'
+        },
+        saveAndAdd: {
+            selector: "#save-and-add",
+            locateStrategy: 'css selector'
+        },
+        collection: {
+            selector: "#collection",
+            locateStrategy: 'css selector'
+        },
+        saveAndContinue: {
+            selector: "#save-and-continue",
+            locateStrategy: 'css selector'
+        },
+        successHeading: {
+            selector: "//h1[contains(text(), 'Success')]",
+            locateStrategy: 'xpath'
         }
     },
     commands: [{
