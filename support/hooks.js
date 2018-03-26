@@ -6,6 +6,7 @@ var waitUntil = require('wait-until');
 
 var mongoURL = process.env.MONGODB_URL;
 var datasetAuthToken = process.env.DATASET_AUTH_TOKEN;
+var importAuthToken = process.env.IMPORT_AUTH_TOKEN;
 var instance_id = "";
 var datasetCollection = mongoURL + "/datasets";
 var collections = [
@@ -33,6 +34,9 @@ const createImport = () => request(
         "json": true,
         "body": {
             "recipe":"b944be78-f56d-409b-9ebd-ab2b77ffe187"
+        },
+        "headers": {
+            "Internal-Token": importAuthToken
         }
     }
 )
@@ -45,6 +49,9 @@ const addFile = (job_id) => request(
         "body": {
             "alias_name": "COICOP",
             "url": "https://s3-eu-west-1.amazonaws.com/dp-frontend-florence-file-uploads/2470609-2470609-EXAMPLE_V4-coicopcomb-inc-geo-code1csvcsv"
+        },
+        "headers": {
+            "Internal-Token": importAuthToken
         }
     }
 )
@@ -56,6 +63,9 @@ const submitJob = (job_id) => request(
         "json": true,
         "body": {
             "state": "submitted"
+        },
+        "headers": {
+            "Internal-Token": importAuthToken
         }
     }
 )
