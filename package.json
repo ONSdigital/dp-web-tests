@@ -11,6 +11,7 @@
     "start:firefox:web": "nightwatch --tag web --env firefox; node create-html-report.js",
     "start:safari": "nightwatch --env safari; node create-html-report.js",
     "start:safari:web": "nightwatch --tag web --env safari; node create-html-report.js",
+    "start:chrome:geography": "nightwatch --tag geography --env chrome; node create-html-report.js",
     "start:parallel-single-browser": "nightwatch --tag web --env chrome; node create-html-report.js",
     "start:parallel-multiple-browser": "nightwatch --tag web --env chrome,firefox; node create-html-report.js",
     "start:parallel-all-browser": "nightwatch --tag web --env chrome,firefox,safari; node create-html-report.js"

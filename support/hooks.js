@@ -1,4 +1,4 @@
-const {client} = require('nightwatch-cucumber');
+/*const {client} = require('nightwatch-cucumber');
 const {defineSupportCode} = require('cucumber');
 var MongoClient = require('mongodb').MongoClient;
 var request = require("request-promise");
@@ -36,7 +36,7 @@ const createImport = () => request(
             "recipe":"b944be78-f56d-409b-9ebd-ab2b77ffe187"
         },
         "headers": {
-            "Internal-Token": importAuthToken
+            "Authorization": importAuthToken
         }
     }
 )
@@ -51,7 +51,7 @@ const addFile = (job_id) => request(
             "url": "https://s3-eu-west-1.amazonaws.com/dp-frontend-florence-file-uploads/2470609-2470609-EXAMPLE_V4-coicopcomb-inc-geo-code1csvcsv"
         },
         "headers": {
-            "Internal-Token": importAuthToken
+            "Authorization": importAuthToken
         }
     }
 )
@@ -65,7 +65,7 @@ const submitJob = (job_id) => request(
             "state": "submitted"
         },
         "headers": {
-            "Internal-Token": importAuthToken
+            "Authorization": importAuthToken
         }
     }
 )
@@ -76,7 +76,7 @@ const getInstance = (instanceID) => request(
         "uri": process.env.DATASET_API_URL + "/instances/" + instanceID,
         "json": true,
         "headers": {
-            "Internal-Token": datasetAuthToken
+            "Authorization": datasetAuthToken
         }
     }
 ).then((resp) => {
@@ -92,6 +92,11 @@ const getInstance = (instanceID) => request(
 })
 
 function queueImport(resolve, reject) {
+    console.log("queueImport resolve: " + resolve);
+    console.log("queueImport reject: " + reject);
+    console.log("importAuthToken response: " + importAuthToken);
+    console.log("createImport response: " + createImport())
+    // console.log("process.env.IMPORT_API_URL response: " + process.env.IMPORT_API_URL)
     return createImport().then((response) => {
         var jobID = response.id;
         var instanceID = response.links.instances[0].id;
@@ -436,4 +441,4 @@ defineSupportCode(({Before, After}) => {
     After(() => {
         return client.end();
     })
-})
+}) */

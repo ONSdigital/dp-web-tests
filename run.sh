@@ -25,14 +25,18 @@ if [[ $DATASET_API_URL == "" ]]; then
 fi
 
 if [[ $DATASET_AUTH_TOKEN == "" ]]; then
-    export DATASET_AUTH_TOKEN=FD0108EA-825D-411C-9B1D-41EF7727F465
+    export DATASET_AUTH_TOKEN="Bearer $SERVICE_AUTH_TOKEN"
 fi
 
 if [[ $IMPORT_AUTH_TOKEN == "" ]]; then
-    export IMPORT_AUTH_TOKEN=0C30662F-6CF6-43B0-A96A-954772267FF5
+    export IMPORT_AUTH_TOKEN="Bearer $SERVICE_AUTH_TOKEN"
 fi
 
 cypher-shell < ./testdata/hierarchy.cypher
+
+npm run start:chrome:geography
+
+exit
 
 case "$1" in
     -f)
