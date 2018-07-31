@@ -1,14 +1,26 @@
 module.exports = {
     url: "http://localhost:20000/geography/",
     elements: {
-        // areatypes: {
-            areaTypes: "#area-types",
-            // locateStrategy: 'css selector'
-        // },
+        areatypes: {
+            selector: ".area-type",
+            locateStrategy: 'css selector'
+        },
+        areatypes0: {
+            selector: "#area-type-0",
+            locateStrategy: 'css selector'
+        },
+        areatypes1: {
+            selector: "#area-type-1",
+            locateStrategy: 'css selector'
+        },
+        areatypes2: {
+            selector: "#area-type-2",
+            locateStrategy: 'css selector'
+        },
     },
     commands: [{
         waitForLoad: function() {
-            return this.waitForElementVisible('@areaTypes', 5000);
+            return this.waitForElementVisible('@areatypes', 5000);
         },
     }]
 }
