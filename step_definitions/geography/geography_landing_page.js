@@ -20,34 +20,4 @@ defineSupportCode(({Given, Then, When}) => {
         return geographyLandingPage
             .expect.element('@areatypes').to.be.visible;
     });
-
-    // Then(/^I can see the description for the 'Area Types'/, () => {
-        
-    //     client.elements('css selector', '.area-type', function(result){
-    //         console.log("test 12345678", result.value);
-    //         result.value.forEach(element => {
-    //             console.log("test", element);
-                
-                
-    //         });
-            
-    //     });
-    //     return geographyLandingPage
-        
-    // });
-    Then(/^I can see the description for the 'Area Type id 0'/, () => {
-        return geographyLandingPage
-            .expect.element('@areatypes0').text.to.equal('Countries');
-    });
-    Then(/^I can see the description for the 'Area Type id 1'/, () => {
-        return geographyLandingPage
-            .expect.element('@areatypes1').text.to.equal('Regions');
-    });
-    Then(/^I can see the description for the 'Area Type id 2'/, () => {
-        return geographyLandingPage
-            .expect.element('@areatypes2').text.to.equal('Local Authority Districts');
-    });
-    
 });
-
-// .text.to.equal('Local Authority Districts');
